@@ -51,7 +51,13 @@
   "other": [
     {
       "title": "Exam technique",
-      "files": []
+      "files": [
+        {
+          "name": "Chain of Reasoning - Class Notes",
+          "path": "Exam Technique/pdfs/Chain of Reasoning - Class Notes.pdf",
+          "type": "PDF"
+        }
+      ]
     }
   ]
 }
