@@ -124,3 +124,5 @@ a { color:var(--accent); }
 .bad { background:#fff0f0; border-left:4px solid #e03131; } .good { background:#ebfbee; border-left:4px solid #2f9e44; }
 .bad b:first-child, .good b:first-child { display:block; }
 @media print { .order .pool { display:none; } }
+
+.qline { background:#eef1f8; border-radius:8px; padding:8px 12px; margin:6px 0; }
