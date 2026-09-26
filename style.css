@@ -128,3 +128,11 @@ a { color:var(--accent); }
 .qline { background:#eef1f8; border-radius:8px; padding:8px 12px; margin:6px 0; }
 
 .nocover #cover { display:none; }
+
+/* Calculation practice */
+.calc input[type=number] { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:8px; width:9em; }
+.calc .row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:8px 0; }
+.calc button { font:inherit; padding:6px 14px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; cursor:pointer; }
+.calc button.alt { background:#fff; color:var(--ink); border-color:var(--line); }
+.calc .work { background:#eef1f8; border-radius:8px; padding:8px 12px; margin-top:8px; }
+.calc .work[hidden] { display:none; }
