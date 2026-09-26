@@ -17,7 +17,7 @@
       c.curve(MC, 'mc', 1, 2, 10.5, 'MC', 9.8); c.curve(AC, 'ac', 1, 0.3, 14, 'AC', 13);
       const mark = (q, y, l, step) => { c.dash(q, y, step); c.dot(q, y, step); c.tag(q, 0, l, step, 0, 14); };
       mark(q1, MR(q1), 'Q1', 2); c.dash(q1, AR(q1), 2); c.dot(q1, AR(q1), 2); c.tag(0, AR(q1), 'P1', 2, -14, 4);
-      mark(q2, 0, 'Q2', 3);
+      mark(q2, 0, 'Q2', 3); c.dash(q2, AR(q2), 3); c.dot(q2, AR(q2), 3); c.tag(0, AR(q2), 'P2', 3, -14, 4);
       mark(q3, AR(q3), 'Q3', 4); c.tag(0, AR(q3), 'P3', 4, -14, 4);
     }
   });
