@@ -35,3 +35,18 @@ if (tabs.length) {
   window.addEventListener('hashchange', fromHash);
   fromHash();
 }
+
+// Chapter downloads list, read from downloads.json so it stays in sync with the Downloads page.
+document.querySelectorAll('[data-downloads]').forEach(ul => {
+  const pre = ul.dataset.prefix || '';
+  fetch(pre + 'downloads.json').then(r => r.json()).then(d => {
+    const ch = d.themes.flatMap(t => t.chapters).find(c => String(c.number) === ul.dataset.downloads);
+    ul.innerHTML = '';
+    if (!ch || !ch.files.length) { ul.innerHTML = '<li>Nothing here yet.</li>'; return; }
+    ch.files.forEach(f => {
+      const li = document.createElement('li'), a = document.createElement('a');
+      a.href = pre + encodeURI(f.path); a.textContent = f.name + ' (' + (f.type || 'PDF') + ')'; a.setAttribute('download', '');
+      li.appendChild(a); ul.appendChild(li);
+    });
+  }).catch(() => { ul.innerHTML = '<li>Could not load the list.</li>'; });
+});

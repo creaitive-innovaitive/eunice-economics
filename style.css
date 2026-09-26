@@ -145,3 +145,10 @@ a { color:var(--accent); }
   .qline { break-inside:avoid; }
   @page { size:A4; margin:16mm 15mm; }
 }
+
+.section-head { font-size:1.2rem; margin:24px 0 10px; padding-bottom:4px; border-bottom:2px solid var(--navy); }
+.section-head.gap-top { margin-top:48px; }
+.dl-list { list-style:none; padding:0; margin:0; }
+.dl-list li { padding:8px 0; border-top:1px solid var(--line); } .dl-list li:first-child { border-top:0; }
+.dl-list a { font-weight:500; text-decoration:none; }
+@media print { .section-head.gap-top { margin-top:18pt; } .dl-list { display:none; } details:has(.dl-list) { display:none; } }
