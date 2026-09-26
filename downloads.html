@@ -60,13 +60,13 @@ fetch('downloads.json').then(r => r.json()).then(data => {
     const h = document.createElement('h2');
     h.textContent = 'Theme ' + t.theme + ': ' + t.title;
     root.appendChild(h);
-    t.sections.forEach(c => root.appendChild(block(c.label, c.title, c.files, c.files.length > 0)));
+    t.sections.forEach(c => root.appendChild(block(c.label, c.title, c.files, false)));
   });
   data.other.forEach(o => {
     const h = document.createElement('h2');
     h.textContent = o.title;
     root.appendChild(h);
-    root.appendChild(block('', o.title, o.files, o.files.length > 0));
+    root.appendChild(block("", o.title, o.files, false));
   });
 }).catch(() => {
   document.getElementById('root').textContent = 'Could not load the list. Open the site through its web address rather than the file.';
