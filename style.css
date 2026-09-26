@@ -152,3 +152,4 @@ a { color:var(--accent); }
 .dl-list li { padding:8px 0; border-top:1px solid var(--line); } .dl-list li:first-child { border-top:0; }
 .dl-list a { font-weight:500; text-decoration:none; }
 @media print { .section-head.gap-top { margin-top:18pt; } .dl-list { display:none; } details:has(.dl-list) { display:none; } }
+@media print { .section-head.gap-top, .section-head.gap-top ~ details { display:none !important; } .section-head { margin-top:14pt; } }

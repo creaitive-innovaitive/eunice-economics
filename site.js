@@ -40,10 +40,13 @@ if (tabs.length) {
 document.querySelectorAll('[data-downloads]').forEach(ul => {
   const pre = ul.dataset.prefix || '';
   fetch(pre + 'downloads.json').then(r => r.json()).then(d => {
-    const ch = d.themes.flatMap(t => t.chapters).find(c => String(c.number) === ul.dataset.downloads);
+    const key = ul.dataset.downloads;
+    let files = [];
+    if (key.startsWith('tech:')) files = d.other.flatMap(o => o.files).filter(f => f.name.startsWith(key.slice(5)));
+    else { const ch = d.themes.flatMap(t => t.chapters).find(c => String(c.number) === key); if (ch) files = ch.files; }
     ul.innerHTML = '';
-    if (!ch || !ch.files.length) { ul.innerHTML = '<li>Nothing here yet.</li>'; return; }
-    ch.files.forEach(f => {
+    if (!files.length) { ul.innerHTML = '<li>Nothing here yet.</li>'; return; }
+    files.forEach(f => {
       const li = document.createElement('li'), a = document.createElement('a');
       a.href = pre + encodeURI(f.path); a.textContent = f.name + ' (' + (f.type || 'PDF') + ')'; a.setAttribute('download', '');
       li.appendChild(a); ul.appendChild(li);
