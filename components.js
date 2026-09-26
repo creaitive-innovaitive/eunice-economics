@@ -98,7 +98,7 @@ function makeQuiz(id, questions) {
     box.innerHTML = `<p><strong>${qi + 1}.</strong> ${q.q}</p>`;
     const fb = document.createElement('p'); fb.className = 'fb'; fb.hidden = true;
     q.options.forEach((opt, oi) => {
-      const b = document.createElement('button'); b.className = 'opt'; b.textContent = opt;
+      const b = document.createElement('button'); b.className = 'opt'; b.innerHTML = opt;
       b.onclick = () => {
         if (box.dataset.done) return;
         box.dataset.done = 1; answered++;
