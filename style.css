@@ -52,8 +52,7 @@ a { color:var(--accent); }
 .lesson h3 { margin:20px 0 6px; font-size:1.05rem; }
 .lesson p, .lesson li { max-width:68ch; }
 .lesson table { border-collapse:collapse; margin:12px 0; font-size:.95rem; }
-.lesson th, .lesson td { border:1px solid var(--line); padding:6px 12px; text-align:right; }
-.lesson th:first-child, .lesson td:first-child { text-align:left; }
+.lesson th, .lesson td { border:1px solid var(--line); padding:6px 12px; text-align:left; vertical-align:top; }
 .lesson th { background:#eef1f8; }
 .formula { background:#eef1f8; border-left:4px solid var(--accent); padding:8px 14px; margin:10px 0; border-radius:0 8px 8px 0; font-family:ui-monospace,Menlo,monospace; font-size:.95rem; }
 .tip { background:#fff8e1; border-left:4px solid var(--gold); padding:10px 14px; margin:14px 0; border-radius:0 8px 8px 0; }
@@ -103,7 +102,7 @@ a { color:var(--accent); }
   .reveal li[hidden] { display:block !important; }
   .card .back { display:block; }
   .widget .slider-row { display:none; }
-  .lesson details, .stepper, .widget { break-inside:avoid-page; }
+  .stepper, .widget { break-inside:avoid-page; }
 }
 
 .chart text.srlab { fill:#475569; font-weight:600; }
@@ -136,3 +135,13 @@ a { color:var(--accent); }
 .calc button.alt { background:#fff; color:var(--ink); border-color:var(--line); }
 .calc .work { background:#eef1f8; border-radius:8px; padding:8px 12px; margin-top:8px; }
 .calc .work[hidden] { display:none; }
+
+@media print {
+  .screen-only, .order, .calc, details:has(.order), details:has(#ord1) { display:none !important; }
+  .lesson h1 { font-size:20pt; margin-top:0; }
+  .lesson { max-width:none; padding:0; }
+  .lesson details > summary { list-style:none; font-weight:700; font-size:13pt; border-bottom:2px solid #0b1f4b; margin-top:12pt; padding:0 0 2pt; }
+  .lesson details > summary::-webkit-details-marker { display:none; }
+  .qline { break-inside:avoid; }
+  @page { size:A4; margin:16mm 15mm; }
+}

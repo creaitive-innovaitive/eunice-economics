@@ -5,6 +5,8 @@ document.querySelectorAll('[data-print]').forEach(b => b.onclick = () => {
   window.print();
 });
 
+if (location.hash === '#print') document.querySelectorAll('details').forEach(d => d.open = true);
+
 // Cover: dissolves on click; shows once per browser session (a session cookie, cleared when the browser closes), on whichever page the visitor lands.
 const cover = document.getElementById('cover');
 if (cover && document.documentElement.classList.contains('nocover')) {
