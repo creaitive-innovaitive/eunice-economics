@@ -1,0 +1,15 @@
+@page { size:A4; margin:16mm 15mm; }
+body { background:#fff; font:10.5pt/1.45 system-ui,-apple-system,sans-serif; color:#1d2433; margin:0; }
+h1 { font-size:20pt; margin:0 0 2pt; } .sub { color:#5b6478; margin:0 0 10pt; }
+h2 { font-size:13pt; border-bottom:2px solid #0b1f4b; padding-bottom:2pt; margin:14pt 0 6pt; break-after:avoid; }
+h3 { font-size:11pt; margin:8pt 0 3pt; break-after:avoid; }
+p, li { margin:3pt 0; } ul, ol { margin:3pt 0; padding-left:18pt; }
+table { border-collapse:collapse; margin:6pt 0; break-inside:avoid; } th, td { border:1px solid #c9cfdd; padding:4pt 8pt; text-align:left; vertical-align:top; } th { background:#eef1f8; }
+.q { break-inside:avoid; margin:10pt 0 4pt; } .marks { float:right; font-weight:700; }
+.lines { border-bottom:1px solid #999; height:18pt; }
+.box { border:1px solid #999; height:70pt; margin:4pt 0; }
+.ms { background:#eef1f8; border-left:4px solid #2f5bd3; padding:6pt 10pt; margin:4pt 0 10pt; break-inside:avoid; }
+.note { color:#5b6478; font-size:9.5pt; }
+.pb { break-before:page; }
+.gap { display:inline-block; min-width:70pt; border-bottom:1px solid #333; }
+.cols { columns:2; column-gap:20pt; } .cols li { break-inside:avoid; }
