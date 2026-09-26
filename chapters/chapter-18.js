@@ -61,7 +61,10 @@
       'The minimum efficient scale (MES) is the lowest output at which LRAC reaches its minimum.'
     ],
     draw(c) {
-      cfg.forEach(([k, m, w], i) => c.curve(sr(k, m, w), 'sr', 0, Math.max(0.3, k - 3.3), Math.min(13.9, k + 3.3)));
+      cfg.forEach(([k, m, w], i) => {
+        c.curve(sr(k, m, w), 'sr', 0, Math.max(0.3, k - 2.4), Math.min(13.9, k + 2.4));
+        c.tag(k, m, 'SRAC' + '\u2081\u2082\u2083\u2084\u2085\u2086'[i], 0, 0, 20, 'srlab');
+      });
       c.svg.querySelectorAll('.sr').forEach(p => p.parentNode.setAttribute('data-step', 0));
       c.curve(lr, 'lr', 2, 0.6, 13.5, 'LRAC', 12);
       c.tag(3, 30, 'Economies of scale', 1, 0, 0, 'lr');

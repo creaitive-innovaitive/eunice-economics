@@ -105,3 +105,5 @@ a { color:var(--accent); }
   .widget .slider-row { display:none; }
   .lesson details, .stepper, .widget { break-inside:avoid-page; }
 }
+
+.chart text.srlab { fill:#475569; font-weight:600; }
