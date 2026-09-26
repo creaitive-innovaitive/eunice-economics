@@ -125,3 +125,31 @@ function makeFlashcards(id, cards) {
   });
 }
 document.addEventListener('DOMContentLoaded', initReveals);
+
+// Ordering exercise: click the links in the order the reasoning runs.
+function makeOrder(id, start, links, end) {
+  const root = document.getElementById(id);
+  root.classList.add('order');
+  const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const build = () => {
+    root.innerHTML = '';
+    const chain = document.createElement('div'); chain.className = 'chain';
+    const add = (t, cls) => { if (chain.children.length) { const a = document.createElement('span'); a.className = 'arrow'; a.textContent = '→ so'; chain.appendChild(a); } const l = document.createElement('span'); l.className = 'link ' + (cls || ''); l.textContent = t; chain.appendChild(l); };
+    add(start, 'start');
+    const pool = document.createElement('div'); pool.className = 'pool';
+    const msg = document.createElement('p'); msg.className = 'msg';
+    let next = 0;
+    shuffle(links.map((t, i) => [t, i])).forEach(([t, i]) => {
+      const b = document.createElement('button'); b.className = 'chip'; b.textContent = t;
+      b.onclick = () => {
+        if (i !== next) { msg.textContent = 'Not yet. Ask what that link needs before it can happen.'; return; }
+        add(t); b.disabled = true; next++; msg.textContent = '';
+        if (next === links.length) { add(end, 'end'); msg.textContent = 'Complete chain. Each link causes the next.'; }
+      };
+      pool.appendChild(b);
+    });
+    const rs = document.createElement('button'); rs.className = 'reset'; rs.textContent = 'Reset'; rs.onclick = build;
+    root.append(chain, pool, msg, rs);
+  };
+  build();
+}

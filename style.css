@@ -107,3 +107,20 @@ a { color:var(--accent); }
 }
 
 .chart text.srlab { fill:#475569; font-weight:600; }
+
+/* Chain of reasoning */
+.chain { display:flex; flex-wrap:wrap; align-items:center; gap:6px 4px; margin:10px 0; }
+.chain .link { background:#fff; border:1px solid var(--accent); color:var(--ink); border-radius:8px; padding:6px 10px; font-size:.92rem; }
+.chain .arrow { color:var(--accent); font-weight:700; font-size:.85rem; }
+.chain .link.start { background:var(--accent); color:#fff; } .chain .link.end { background:#d3f9d8; border-color:#2f9e44; }
+.chain .link.gap { background:#ffe3e3; border-color:#e03131; border-style:dashed; }
+.order .pool { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+.order .chip { font:inherit; font-size:.92rem; padding:7px 12px; background:#fff; border:1px solid var(--line); border-radius:8px; cursor:pointer; }
+.order .chip:hover { border-color:var(--accent); }
+.order .chip:disabled { opacity:.3; }
+.order .msg { min-height:1.6em; font-size:.92rem; color:var(--muted); }
+.order button.reset { font:inherit; padding:5px 12px; border:1px solid var(--line); background:#fff; border-radius:8px; cursor:pointer; }
+.bad, .good { border-radius:8px; padding:10px 14px; margin:8px 0; }
+.bad { background:#fff0f0; border-left:4px solid #e03131; } .good { background:#ebfbee; border-left:4px solid #2f9e44; }
+.bad b:first-child, .good b:first-child { display:block; }
+@media print { .order .pool { display:none; } }
