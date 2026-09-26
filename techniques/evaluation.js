@@ -1,0 +1,7 @@
+makeQuiz('quiz', [
+  { q: '"The rise in price may not reduce demand much, because there are few substitutes." Which angle is this?', options: ['Elasticity', 'Business cycle', 'Government response', 'Time lag'], answer: 0, why: 'Few substitutes means demand is inelastic, so quantity responds little.' },
+  { q: '"Firms can cover the extra cost from reserves for now, but not if it lasts for years." Which angle?', options: ['Magnitude', 'Short run versus long run', 'Stakeholders', 'Depends on the market'], answer: 1, why: 'The effect changes over time.' },
+  { q: '"Consumers gain from lower prices, but workers may lose jobs." Which angle?', options: ['Elasticity', 'Stakeholders', 'Time lag', 'Magnitude'], answer: 1, why: 'It compares who gains and who loses.' },
+  { q: 'Which is the strongest evaluation point?', options: ['But it might not happen.', 'However, there are other factors.', 'However, if demand is inelastic, the firm can pass the cost on, as the extract shows for fuel, so the fall in profit will be small.', 'On the other hand, it depends.'], answer: 2, why: 'It names a condition, gives a reason, uses the context and weighs the result.' },
+  { q: 'Where does evaluation get its marks from in a judgement?', options: ['Adding new arguments at the end', 'Weighing points already made and saying which matter most', 'Repeating the analysis', 'Making it long'], answer: 1, why: 'A judgement weighs and decides. It does not add new ideas.' }
+]);
