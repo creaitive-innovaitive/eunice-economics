@@ -43,7 +43,7 @@ document.querySelectorAll('[data-downloads]').forEach(ul => {
     const key = ul.dataset.downloads;
     let files = [];
     if (key.startsWith('tech:')) files = d.other.flatMap(o => o.files).filter(f => f.name.startsWith(key.slice(5)));
-    else { const ch = d.themes.flatMap(t => t.chapters).find(c => String(c.number) === key); if (ch) files = ch.files; }
+    else { const ch = d.themes.flatMap(t => t.sections).find(c => c.id === key); if (ch) files = ch.files; }
     ul.innerHTML = '';
     if (!files.length) { ul.innerHTML = '<li>Nothing here yet.</li>'; return; }
     files.forEach(f => {

@@ -23,7 +23,7 @@
 <header class="nav"><a class="brand" href="index.html">Edexcel Economics</a><nav><a href="index.html">Home</a><a href="index.html#theme3">Theme 3</a><a href="index.html#technique">Exam technique</a><a href="downloads.html">Downloads</a></nav></header>
 <main>
   <h1>Downloads</h1>
-  <p class="sub">Class notes, worksheets and question packs, organised by textbook chapter.</p>
+  <p class="sub">Class notes, worksheets and question packs, organised by the Edexcel specification.</p>
   <div id="root">Loading...</div>
 </main>
 <script>
@@ -60,7 +60,7 @@ fetch('downloads.json').then(r => r.json()).then(data => {
     const h = document.createElement('h2');
     h.textContent = 'Theme ' + t.theme + ': ' + t.title;
     root.appendChild(h);
-    t.chapters.forEach(c => root.appendChild(block('Chapter ' + c.number, c.title, c.files, c.files.length > 0)));
+    t.sections.forEach(c => root.appendChild(block(c.label, c.title, c.files, c.files.length > 0)));
   });
   data.other.forEach(o => {
     const h = document.createElement('h2');

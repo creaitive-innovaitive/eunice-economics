@@ -3,61 +3,74 @@
     {
       "theme": 3,
       "title": "Business behaviour and the labour market",
-      "chapters": [
+      "sections": [
         {
-          "number": 17,
+          "id": "3-1-business-growth",
+          "label": "3.1",
           "title": "Business growth",
           "files": []
         },
         {
-          "number": 18,
-          "title": "Revenues, costs, profits and objectives",
+          "id": "3-2-3-3-revenue-costs-profits",
+          "label": "3.2 and 3.3",
+          "title": "Business objectives, revenues, costs and profits",
           "files": [
             {
-              "name": "Chapter 18 - Class Notes",
-              "path": "Theme 3/pdfs/Chapter 18 - Class Notes.pdf",
+              "name": "3.2-3.3 - Class Notes",
+              "path": "Theme 3/pdfs/3.2-3.3 - Class Notes.pdf",
               "type": "PDF"
             },
             {
-              "name": "Chapter 18 - Keywords Worksheet",
-              "path": "Theme 3/pdfs/Chapter 18 - Keywords Worksheet.pdf",
+              "name": "3.2-3.3 - Keywords Worksheet",
+              "path": "Theme 3/pdfs/3.2-3.3 - Keywords Worksheet.pdf",
               "type": "PDF"
             },
             {
-              "name": "Chapter 18 - Calculations Worksheet",
-              "path": "Theme 3/pdfs/Chapter 18 - Calculations Worksheet.pdf",
+              "name": "3.2-3.3 - Calculations Worksheet",
+              "path": "Theme 3/pdfs/3.2-3.3 - Calculations Worksheet.pdf",
               "type": "PDF"
             },
             {
-              "name": "Chapter 18 - Exam Questions and Mark Scheme",
-              "path": "Theme 3/pdfs/Chapter 18 - Exam Questions and Mark Scheme.pdf",
+              "name": "3.2-3.3 - Exam Questions and Mark Scheme",
+              "path": "Theme 3/pdfs/3.2-3.3 - Exam Questions and Mark Scheme.pdf",
               "type": "PDF"
             }
           ]
         },
         {
-          "number": 19,
-          "title": "Market structure: perfect competition and monopoly",
+          "id": "3-4-efficiency-perfect-monopolistic-competition",
+          "label": "3.4",
+          "title": "Efficiency, perfect competition and monopolistic competition",
           "files": []
         },
         {
-          "number": 20,
-          "title": "Market structure: monopolistic competition and oligopoly",
+          "id": "3-4-oligopoly",
+          "label": "3.4",
+          "title": "Oligopoly",
           "files": []
         },
         {
-          "number": 21,
-          "title": "Pricing strategies and contestable markets",
+          "id": "3-4-monopoly",
+          "label": "3.4",
+          "title": "Monopoly and price discrimination",
           "files": []
         },
         {
-          "number": 22,
-          "title": "The labour market",
+          "id": "3-4-monopsony-contestability",
+          "label": "3.4",
+          "title": "Monopsony and contestability",
           "files": []
         },
         {
-          "number": 23,
-          "title": "Government intervention to promote competition",
+          "id": "3-5-labour-market",
+          "label": "3.5",
+          "title": "Labour market",
+          "files": []
+        },
+        {
+          "id": "3-6-government-intervention",
+          "label": "3.6",
+          "title": "Government intervention",
           "files": []
         }
       ]
