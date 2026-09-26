@@ -71,20 +71,20 @@ function makeStepper(id, o) {
   return { chart, root, render, get step() { return cur; } };
 }
 
-// Reveal list: button shows the next item.
+// Reveal list: the control bar after the list holds a "next" button and a reset button.
 function initReveals() {
   document.querySelectorAll('.reveal').forEach(r => {
     const items = [...r.querySelectorAll(':scope > li')];
-    const btn = r.nextElementSibling;
-    let n = 0;
+    const ctl = r.nextElementSibling;
+    const btn = ctl.querySelector('button:not([data-reset])');
+    const rs = ctl.querySelector('[data-reset]');
+    let n = 1;
     items.forEach((li, i) => li.hidden = i >= 1);
-    n = 1;
     btn.onclick = () => {
       if (n < items.length) items[n++].hidden = false;
       if (n >= items.length) btn.disabled = true;
     };
-    const rs = btn.parentElement.querySelector('[data-reset]');
-    if (rs) rs.onclick = () => { items.forEach((li, i) => li.hidden = i >= 1); n = 1; btn.disabled = false; };
+    rs.onclick = () => { items.forEach((li, i) => li.hidden = i >= 1); n = 1; btn.disabled = false; };
   });
 }
 
