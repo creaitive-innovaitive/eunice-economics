@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Downloads - Eunice's Economics</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  main { max-width:760px; margin:0 auto; padding:24px 16px 64px; }
+  h2 { margin:32px 0 12px; font-size:1.2rem; }
+  details { background:#fff; border:1px solid var(--line); border-radius:10px; margin-bottom:8px; }
+  summary { padding:12px 16px; cursor:pointer; font-weight:600; }
+  summary span { color:var(--accent); margin-right:6px; }
+  ul { list-style:none; margin:0; padding:0 16px 12px; }
+  li { padding:8px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; }
+  li a { text-decoration:none; font-weight:500; }
+  li small { color:var(--muted); }
+  .empty { padding:0 16px 14px; color:var(--muted); }
+  .sub { color:var(--muted); margin:0 0 24px; }
+</style>
+</head>
+<body>
+<header class="nav"><a class="brand" href="index.html">Edexcel Economics</a><nav><a href="index.html">Home</a><a href="index.html#theme3">Theme 3</a><a href="index.html#technique">Exam technique</a><a href="downloads.html">Downloads</a></nav></header>
+<main>
+  <h1>Downloads</h1>
+  <p class="sub">Class notes, worksheets and question packs, organised by textbook chapter.</p>
+  <div id="root">Loading...</div>
+</main>
+<script>
+function block(label, title, files, open) {
+  const d = document.createElement('details');
+  if (open) d.open = true;
+  const s = document.createElement('summary');
+  s.innerHTML = (label ? '<span>' + label + '</span>' : '') + title;
+  d.appendChild(s);
+  if (!files.length) {
+    const p = document.createElement('div');
+    p.className = 'empty';
+    p.textContent = 'Nothing here yet.';
+    d.appendChild(p);
+  } else {
+    const ul = document.createElement('ul');
+    files.forEach(f => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = f.path; a.textContent = f.name; a.setAttribute('download', '');
+      const t = document.createElement('small');
+      t.textContent = f.type || 'PDF';
+      li.append(a, t);
+      ul.appendChild(li);
+    });
+    d.appendChild(ul);
+  }
+  return d;
+}
+fetch('downloads.json').then(r => r.json()).then(data => {
+  const root = document.getElementById('root');
+  root.textContent = '';
+  data.themes.forEach(t => {
+    const h = document.createElement('h2');
+    h.textContent = 'Theme ' + t.theme + ': ' + t.title;
+    root.appendChild(h);
+    t.chapters.forEach(c => root.appendChild(block('Chapter ' + c.number, c.title, c.files, c.files.length > 0)));
+  });
+  data.other.forEach(o => {
+    const h = document.createElement('h2');
+    h.textContent = o.title;
+    root.appendChild(h);
+    root.appendChild(block('', o.title, o.files, o.files.length > 0));
+  });
+}).catch(() => {
+  document.getElementById('root').textContent = 'Could not load the list. Open the site through its web address rather than the file.';
+});
+</script>
+</body>
+</html>

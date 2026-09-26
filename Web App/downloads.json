@@ -1,0 +1,51 @@
+{
+  "themes": [
+    {
+      "theme": 3,
+      "title": "Business behaviour and the labour market",
+      "chapters": [
+        {
+          "number": 17,
+          "title": "Business growth",
+          "files": []
+        },
+        {
+          "number": 18,
+          "title": "Revenues, costs, profits and objectives",
+          "files": []
+        },
+        {
+          "number": 19,
+          "title": "Market structure: perfect competition and monopoly",
+          "files": []
+        },
+        {
+          "number": 20,
+          "title": "Market structure: monopolistic competition and oligopoly",
+          "files": []
+        },
+        {
+          "number": 21,
+          "title": "Pricing strategies and contestable markets",
+          "files": []
+        },
+        {
+          "number": 22,
+          "title": "The labour market",
+          "files": []
+        },
+        {
+          "number": 23,
+          "title": "Government intervention to promote competition",
+          "files": []
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "title": "Exam technique",
+      "files": []
+    }
+  ]
+}

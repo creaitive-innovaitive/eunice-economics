@@ -1,0 +1,71 @@
+{
+ "chapters": [
+  {
+   "n": 17,
+   "title": "Business growth",
+   "img": "ch17"
+  },
+  {
+   "n": 18,
+   "title": "Revenues, costs, profits and objectives",
+   "img": "ch18"
+  },
+  {
+   "n": 19,
+   "title": "Market structure: perfect competition and monopoly",
+   "img": "ch19"
+  },
+  {
+   "n": 20,
+   "title": "Market structure: monopolistic competition and oligopoly",
+   "img": "ch20"
+  },
+  {
+   "n": 21,
+   "title": "Pricing strategies and contestable markets",
+   "img": "ch21"
+  },
+  {
+   "n": 22,
+   "title": "The labour market",
+   "img": "ch22"
+  },
+  {
+   "n": 23,
+   "title": "Government intervention to promote competition",
+   "img": "ch23"
+  }
+ ],
+ "techs": [
+  {
+   "slug": "command-words",
+   "title": "Command words and mark allocation",
+   "img": "tech-command"
+  },
+  {
+   "slug": "chain-of-reasoning",
+   "title": "Chain of reasoning",
+   "img": "tech-chain"
+  },
+  {
+   "slug": "evaluation",
+   "title": "Evaluation and judgement",
+   "img": "tech-eval"
+  },
+  {
+   "slug": "25-mark-essays",
+   "title": "Structuring a 25-mark essay",
+   "img": "tech-essay"
+  },
+  {
+   "slug": "diagrams",
+   "title": "Diagrams that earn marks",
+   "img": "tech-diagram"
+  },
+  {
+   "slug": "data-response",
+   "title": "Data response and quantitative skills",
+   "img": "tech-data"
+  }
+ ]
+}
