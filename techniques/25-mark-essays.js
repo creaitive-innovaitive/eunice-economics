@@ -1,0 +1,7 @@
+makeQuiz('quiz', [
+  { q: '"But this depends on whether the firm can actually find its MC = MR output, which is hard to measure in practice." Which paragraph type is this?', options: ['Definitions', 'Analysis', 'Evaluation of the analysis', 'Judgement'], answer: 2, why: 'It challenges a link in the analysis rather than adding a new chain.' },
+  { q: '"Sales maximisation gives higher output at a lower price, so consumers pay less and firms gain market share." What is this?', options: ['Definitions', 'Analysis', 'Evaluation', 'Judgement'], answer: 1, why: 'It develops a chain of reasoning: lower price, more output, more market share.' },
+  { q: 'Which is the best opening to a judgement?', options: ['There are many arguments on both sides.', 'Profit maximisation should be the main objective, as long as owners can monitor managers.', 'In conclusion, firms have objectives.', 'Profit will always be the goal.'], answer: 1, why: 'It answers immediately, gives a reason and a condition. "Will always" is too certain.' },
+  { q: 'You are running out of time. What should you protect?', options: ['The second diagram', 'A long introduction', 'The judgement', 'The definitions'], answer: 2, why: 'A supported judgement carries marks that a diagram or long definition cannot replace.' },
+  { q: 'How many minutes should planning take?', options: ['1', '5', '10', '15'], answer: 1, why: 'Five minutes for the plan, then about 25 for the writing.' }
+]);
