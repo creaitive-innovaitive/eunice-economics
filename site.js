@@ -5,14 +5,17 @@ document.querySelectorAll('[data-print]').forEach(b => b.onclick = () => {
   window.print();
 });
 
-// Cover: dissolves on click; shows on every load of the home page.
+// Cover: dissolves on click; shows once per browser session, not on refresh.
 const cover = document.getElementById('cover');
-if (cover) {
+if (cover && document.documentElement.classList.contains('nocover')) {
+  cover.remove();
+} else if (cover) {
   document.body.style.overflow = 'hidden';
   cover.querySelector('button').onclick = () => {
+    try { sessionStorage.setItem('coverSeen', '1'); } catch (e) {}
     cover.classList.add('dissolve');
     document.body.style.overflow = '';
-    setTimeout(() => cover.remove(), 1300);
+    setTimeout(() => cover.remove(), 3100);
   };
 }
 
