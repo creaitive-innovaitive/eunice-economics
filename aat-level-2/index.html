@@ -1674,8 +1674,9 @@ Lib.cards($("#u4fc"), { cards: [
   ["CPD", "Continuing professional development to keep skills up to date."],
 ] });
 
+try{history.scrollRestoration="manual";const rs=history.replaceState.bind(history);history.replaceState=(a,b)=>rs(a,b,location.pathname+location.search)}catch(e){}
 Lib.initTabs();
-try{history.scrollRestoration="manual"}catch(e){}
 window.scrollTo(0,0);
+addEventListener("load",()=>{window.scrollTo(0,0);setTimeout(()=>window.scrollTo(0,0),60)});
 </script>
 </body></html>
