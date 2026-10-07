@@ -1,0 +1,1679 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AAT Level 2 Units</title>
+<style>:root{
+  --bg:#f5f3ee; --surface:#fff; --ink:#17212b; --muted:#566573; --line:#d9d4c7; --soft:#eef2f5;
+  --accent:#2b5d7c; --accent-ink:#fff; --accent-soft:#e0ecf3;
+  --good:#1d7a4c; --good-soft:#dff2e7; --bad:#b3372f; --bad-soft:#f9e2df; --warn:#a85d00; --warn-soft:#fbead2;
+  --k:#1f5fa8; --a:#1d7a4c; --n:#7a3fa0; --e:#b25a00;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12171c; --surface:#1b232b; --ink:#e8edf0; --muted:#9aa8b2; --line:#2e3a44; --soft:#202b34;
+  --accent:#7fb6d6; --accent-ink:#0d1a23; --accent-soft:#1f3140;
+  --good:#6ccb9b; --good-soft:#173a2a; --bad:#f0857d; --bad-soft:#3d1f1c; --warn:#f0b36a; --warn-soft:#3a2b14;
+  --k:#7fb2ee; --a:#6ccb9b; --n:#c79be6; --e:#f0a95a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171c; --surface:#1b232b; --ink:#e8edf0; --muted:#9aa8b2; --line:#2e3a44; --soft:#202b34;
+  --accent:#7fb6d6; --accent-ink:#0d1a23; --accent-soft:#1f3140;
+  --good:#6ccb9b; --good-soft:#173a2a; --bad:#f0857d; --bad-soft:#3d1f1c; --warn:#f0b36a; --warn-soft:#3a2b14;
+  --k:#7fb2ee; --a:#6ccb9b; --n:#c79be6; --e:#f0a95a; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:12px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+.wrap{max-width:980px;margin:0 auto;padding:22px 16px 90px}
+h1,h2,h3{font-family:var(--serif);line-height:1.18;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.7rem,5vw,2.5rem);letter-spacing:-.015em}
+h2{font-size:1.45rem;margin:26px 0 10px}
+h3{font-size:1.12rem;margin:18px 0 6px}
+p{margin:0 0 .8em}
+.eyebrow{font:700 .72rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.lead{color:var(--muted);font-size:1.08rem;max-width:68ch;margin-top:8px}
+header.top{padding:6px 0 14px}
+.tablist{display:flex;gap:4px;flex-wrap:wrap;margin:14px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5;padding-top:8px}
+.tablist button{font:600 .9rem var(--sans);padding:8px 13px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.tablist button:hover{color:var(--ink)}
+.tablist button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.tablist button:focus-visible,.b:focus-visible,summary:focus-visible,.chip:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+[role=tabpanel][hidden]{display:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 14px}
+.card.big{background:var(--accent-soft);border-color:var(--accent)}
+.card h3:first-child{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid2>.card{margin:0}
+.formula{font:600 1.05rem var(--mono);background:var(--soft);border-left:4px solid var(--accent);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.kw{font-weight:700;color:var(--accent)}
+table.t{border-collapse:collapse;width:100%;font-size:.93rem;margin:8px 0}
+table.t th,table.t td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.t th{font:700 .72rem var(--sans);text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.tw{overflow-x:auto}
+.b{font:700 .9rem var(--sans);padding:8px 14px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.b:hover{background:var(--soft)}
+.b.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.b:disabled{opacity:.5;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.note{font-size:.88rem;color:var(--muted)}
+.pill{display:inline-block;font:700 .72rem var(--sans);padding:2px 9px;border-radius:99px;background:var(--accent-soft);color:var(--accent);vertical-align:middle}
+.tip{border-left:4px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+.tip b.h{display:block;font:700 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+.warn{border-left:4px solid var(--bad);background:var(--bad-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+.warn b.h{display:block;font:700 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--bad)}
+/* stepper */
+.stp{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:10px 0 14px}
+.stp svg{display:block;width:100%;height:auto;background:var(--surface)}
+.stp-cap{padding:12px 16px;background:var(--ink);color:var(--bg);font-size:1.02rem;min-height:3.6em}
+.stp-ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 12px}
+.stp-dots{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.stp-dots button{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--muted);font:700 .72rem var(--sans);cursor:pointer;padding:0}
+.stp-dots button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.stp-dots button.done{border-color:var(--accent);color:var(--accent)}
+/* svg theme classes */
+svg text{font-family:var(--sans);fill:var(--ink)}
+svg .ax{stroke:var(--ink);stroke-width:2;fill:none}
+svg .gr{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4;fill:none}
+svg .lbl{font-size:13px}
+svg .sm{font-size:11.5px;fill:var(--muted)}
+svg .bd{font-weight:700}
+svg .c1{stroke:var(--accent);stroke-width:3.5;fill:none}
+svg .c2{stroke:var(--bad);stroke-width:3.5;fill:none}
+svg .c3{stroke:var(--good);stroke-width:3.5;fill:none}
+svg .c4{stroke:var(--warn);stroke-width:3.5;fill:none}
+svg .f1{fill:var(--accent);opacity:.18} svg .f2{fill:var(--bad);opacity:.18} svg .f3{fill:var(--good);opacity:.2} svg .f4{fill:var(--warn);opacity:.22}
+svg .dash{stroke-dasharray:6 5}
+svg .t1{fill:var(--accent)} svg .t2{fill:var(--bad)} svg .t3{fill:var(--good)} svg .t4{fill:var(--warn)}
+svg .dot1{fill:var(--accent)} svg .dot2{fill:var(--bad)} svg .dot3{fill:var(--good)} svg .dot4{fill:var(--warn)}
+/* sliders */
+.sl{margin:10px 0}
+.sl label{display:flex;justify-content:space-between;font-weight:600;font-size:.95rem}
+.sl output{font:600 .9rem var(--mono);color:var(--accent)}
+.sl input{width:100%;accent-color:var(--accent);margin:6px 0}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.readout div{border-top:3px solid var(--accent);background:var(--surface);padding:8px 10px;border-radius:0 0 8px 8px;border:1px solid var(--line);border-top:3px solid var(--accent)}
+.readout small{display:block;font:700 .66rem var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.readout strong{font:700 1.25rem var(--mono);font-variant-numeric:tabular-nums}
+.verdict{padding:10px 14px;border-radius:8px;background:var(--accent-soft);border:1px solid var(--accent);font-weight:600;margin:8px 0}
+/* classify / match */
+.cls .pool{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border:2px dashed var(--line);border-radius:10px;min-height:54px;background:var(--soft)}
+.cls .buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:12px 0}
+.cls .bk{border:2px solid var(--line);border-radius:10px;padding:8px;min-height:84px;background:var(--surface)}
+.cls .bk h4{margin:0 0 6px;font:700 .82rem var(--sans);color:var(--accent)}
+.cls .bk .slot{display:flex;flex-wrap:wrap;gap:6px;min-height:34px}
+.cls .bk.over,.cls .pool.over{border-color:var(--accent);background:var(--accent-soft)}
+.chip{font:600 .88rem var(--sans);padding:6px 11px;border-radius:8px;border:1.5px solid var(--accent);background:var(--surface);color:var(--ink);cursor:grab;user-select:none;text-align:left}
+.chip.sel{background:var(--accent);color:var(--accent-ink)}
+.chip.ok{border-color:var(--good);background:var(--good-soft)}
+.chip.no{border-color:var(--bad);background:var(--bad-soft)}
+.cls .msg,.ord .msg,.calc .msg{font-weight:700;margin:8px 0}
+.match .bk h4{font-size:.9rem;color:var(--ink)}
+/* order */
+.ord ol{list-style:none;margin:10px 0;padding:0;counter-reset:o}
+.ord li{counter-increment:o;display:flex;align-items:center;gap:10px;padding:9px 12px;margin-bottom:6px;border:1.5px solid var(--line);border-radius:9px;background:var(--surface);cursor:grab}
+.ord li::before{content:counter(o);font:700 .8rem var(--mono);width:24px;height:24px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.ord li.ok{border-color:var(--good);background:var(--good-soft)} .ord li.no{border-color:var(--bad);background:var(--bad-soft)}
+.ord li.drag{opacity:.4}
+.ord li span{flex:1}
+.ord li button{padding:2px 8px}
+/* quiz */
+.qz .q{margin:0 0 16px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.qz .q p.qt{font-weight:700;margin-bottom:8px}
+.opt{display:block;width:100%;text-align:left;font:500 .95rem var(--sans);padding:9px 12px;margin:5px 0;border-radius:9px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt.ok{border-color:var(--good);background:var(--good-soft)} .opt.no{border-color:var(--bad);background:var(--bad-soft)}
+.why{display:none;margin-top:8px;font-size:.92rem;padding:8px 12px;background:var(--soft);border-radius:8px}
+.q.done .why{display:block}
+.score{font:700 1.05rem var(--sans);margin:10px 0}
+/* calc */
+.calc .q{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:12px}
+.calc input[type=number],.calc input[type=text]{width:130px;padding:7px 10px;font:600 1rem var(--mono);border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.calc .sol{display:none;margin-top:8px;padding:10px 12px;background:var(--soft);border-radius:8px;font-size:.93rem}
+.calc .sol.show{display:block}
+.calc .fb{font-weight:700;margin-left:8px}
+.calc .fb.ok{color:var(--good)} .calc .fb.no{color:var(--bad)}
+/* cards */
+.fc{perspective:900px;max-width:520px}
+.fc .face{min-height:170px;display:grid;place-items:center;text-align:center;padding:20px;border-radius:14px;border:2px solid var(--accent);background:var(--surface);cursor:pointer;font-size:1.1rem}
+.fc .face.back{background:var(--accent-soft)}
+.fc .face small{display:block;font:700 .66rem var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+/* exam Qs */
+details.eq{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+details.eq>summary{cursor:pointer;padding:12px 16px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+details.eq>summary::-webkit-details-marker{display:none}
+details.eq>summary::before{content:"▸";color:var(--accent)}
+details.eq[open]>summary::before{content:"▾"}
+details.eq .body{padding:4px 18px 16px}
+.mark{font:700 .72rem var(--mono);background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:99px}
+.cmd{font:700 .72rem var(--sans);background:var(--warn-soft);color:var(--warn);padding:2px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em}
+.ans{border-left:4px solid var(--accent);padding:6px 14px;margin:10px 0;background:var(--soft);border-radius:0 8px 8px 0}
+.mk{border-bottom:2px solid currentColor;padding-bottom:1px}
+.mk[data-t]::after{content:" [" attr(data-t) "]";font:700 .64rem var(--sans);vertical-align:super;opacity:.85}
+.mk.k{color:var(--k)} .mk.a{color:var(--a)} .mk.n{color:var(--n)} .mk.e{color:var(--e)}
+.key{display:flex;gap:12px;flex-wrap:wrap;font-size:.82rem;margin:6px 0}
+.key span{display:inline-flex;gap:5px;align-items:center}
+.key i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.key .k i{background:var(--k)} .key .a i{background:var(--a)} .key .n i{background:var(--n)} .key .e i{background:var(--e)}
+.rw{border:1px solid var(--line);border-left:5px solid var(--accent);background:var(--surface);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:12px}
+.rw h3{margin:0 0 4px}
+.rw .use{margin-top:8px;padding:8px 12px;background:var(--accent-soft);border-radius:8px;font-size:.93rem}
+.rw .use b{color:var(--accent)}
+ul.tips{list-style:none;padding:0;margin:0}
+ul.tips li{padding:10px 14px;margin-bottom:8px;border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:0 10px 10px 0;background:var(--surface)}
+ul.tips li b{color:var(--warn)}
+.algo{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(250px,1fr);gap:14px;align-items:start;margin:10px 0 14px}
+.algo .stp{margin:0}
+@media (max-width:820px){.algo{grid-template-columns:minmax(0,1fr)}}
+.code{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ctabs{display:flex;gap:4px;padding:8px 8px 0;border-bottom:1px solid var(--line);background:var(--soft)}
+.ctabs button{font:700 .78rem var(--sans);padding:6px 12px;border:1px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;background:var(--bg);color:var(--muted);cursor:pointer}
+.ctabs button[aria-selected="true"]{background:var(--surface);color:var(--accent);border-color:var(--accent)}
+pre.cp{margin:0;padding:8px 0;font:500 .82rem/1.55 var(--mono);overflow-x:auto;counter-reset:l}
+pre.cp[hidden]{display:none}
+pre.cp .ln{display:block;padding:0 12px 0 8px;white-space:pre;border-left:4px solid transparent;counter-increment:l}
+pre.cp .ln::before{content:counter(l);display:inline-block;width:1.7em;margin-right:.8em;text-align:right;color:var(--muted);opacity:.6}
+pre.cp .ln.on{background:var(--warn-soft);border-left-color:var(--warn);font-weight:700}
+svg .cell{fill:var(--soft);stroke:var(--line);stroke-width:2}
+svg .cell-cur{fill:var(--accent-soft);stroke:var(--accent);stroke-width:3}
+svg .cell-ok{fill:var(--good-soft);stroke:var(--good);stroke-width:3}
+svg .cell-no{fill:var(--bad-soft);stroke:var(--bad);stroke-width:3}
+svg .cell-warn{fill:var(--warn-soft);stroke:var(--warn);stroke-width:3}
+svg .cell-sorted{fill:var(--good-soft);stroke:var(--good);stroke-width:2}
+svg .cell-dimg{opacity:.28}
+svg .nd{fill:var(--soft);stroke:var(--muted);stroke-width:2}
+svg .nd-cur{fill:var(--accent-soft);stroke:var(--accent);stroke-width:3.5}
+svg .nd-ok{fill:var(--good-soft);stroke:var(--good);stroke-width:3.5}
+svg .nd-no{fill:var(--bad-soft);stroke:var(--bad);stroke-width:3}
+svg .nd-seen{fill:var(--good-soft);stroke:var(--good);stroke-width:2}
+svg .edge{stroke:var(--muted);stroke-width:2.5;fill:none}
+svg .arr{fill:var(--muted)}
+svg .edge-on{stroke:var(--accent);stroke-width:4;fill:none}
+.vars{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.vars span{font:600 .85rem var(--mono);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:3px 9px}
+.bar{height:14px;border-radius:7px;background:var(--accent);min-width:2px}
+.bar.b2{background:var(--bad)} .bar.b3{background:var(--good)} .bar.b4{background:var(--warn)}
+table.mx td,table.mx th{text-align:center;font:600 .95rem var(--mono);padding:6px 10px}
+table.mx td.z{color:var(--muted);opacity:.6} table.mx td.on{background:var(--accent-soft);color:var(--accent);font-weight:700}
+table.mx td.hl{outline:3px solid var(--warn);outline-offset:-3px}
+table.mx td.ls{text-align:left}
+@media (max-width:640px){.tablist{position:static}}
+@media print{.tablist{display:none}[role=tabpanel][hidden]{display:block}.stp-ctl{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.stp{scroll-margin-top:70px}
+
+.sub{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 18px}
+.sub button{font:600 .85rem var(--sans);padding:7px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.sub button:hover{color:var(--ink)}
+.sub button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.sub button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+svg .bx{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+svg .bxh{fill:var(--accent-soft);stroke:var(--accent);stroke-width:3}
+svg .bxg{fill:var(--good-soft);stroke:var(--good);stroke-width:2.5}
+svg .fm{fill:var(--good);opacity:.3}
+svg .arr{fill:var(--muted)}
+</style></head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">AAT Level 2 · Foundation Certificate in Accounting</div>
+  <h1>AAT Level 2: The Four Units</h1>
+  <p class="lead">Bookkeeping transactions, bookkeeping controls, elements of costing and working effectively in accounting and finance. Each unit has an explainer, animations, labs, practice, real-world examples and exam-style tasks.</p>
+  <p class="note">Unit content follows the AAT Level 2 structure as understood at the time of writing. Check the current unit specifications on the AAT website before relying on exact scope.</p>
+</header>
+<nav class="tablist" role="tablist" aria-label="Units">
+  <button role="tab" data-p="u1">1 · Bookkeeping Transactions</button>
+  <button role="tab" data-p="u2">2 · Bookkeeping Controls</button>
+  <button role="tab" data-p="u3">3 · Elements of Costing</button>
+  <button role="tab" data-p="u4">4 · Work Effectively</button>
+</nav>
+<section id="u1" role="tabpanel">
+  <nav class="sub" aria-label="Unit 1 sections">
+    <button role="tab" data-sp="u1-learn">Learn</button>
+    <button role="tab" data-sp="u1-watch">Watch &amp; explore</button>
+    <button role="tab" data-sp="u1-practise">Practise</button>
+    <button role="tab" data-sp="u1-real">Real world &amp; tips</button>
+    <button role="tab" data-sp="u1-exam">Exam questions</button>
+  </nav>
+
+  <div class="sp" id="u1-learn" role="tabpanel">
+    <div class="card big"><h3>The big idea</h3>
+      <p><span class="kw">Bookkeeping</span> is recording every financial transaction so that nothing is lost and the books always balance. Each transaction starts as a <b>source document</b>, is listed in a <b>book of prime entry</b>, is posted to <b>ledger accounts</b> using <b>double-entry</b>, and ends up in a <b>trial balance</b> that proves debits equal credits.</p></div>
+
+    <h2>1 · Source documents</h2>
+    <div class="tw"><table class="t">
+      <tr><th>Document</th><th>Who sends it</th><th>What it does</th></tr>
+      <tr><td>Purchase order</td><td>Buyer</td><td>Requests goods or services at an agreed price</td></tr>
+      <tr><td>Delivery note</td><td>Seller</td><td>Lists what was delivered; the buyer checks it against the order</td></tr>
+      <tr><td>Invoice</td><td>Seller</td><td>Asks for payment: net amount, VAT, total, payment terms</td></tr>
+      <tr><td>Credit note</td><td>Seller</td><td>Reduces what is owed (returns, errors, allowances)</td></tr>
+      <tr><td>Statement</td><td>Seller</td><td>Summarises invoices, credit notes and payments over a period</td></tr>
+      <tr><td>Remittance advice</td><td>Buyer</td><td>Tells the seller which invoices a payment covers</td></tr>
+      <tr><td>Receipt, cheque stub, paying-in slip</td><td>Either</td><td>Evidence of cash and bank movements</td></tr>
+    </table></div>
+    <p>Check every document before recording it: correct supplier or customer, correct arithmetic, correct VAT, authorised, and not already entered. A <b>ledger code</b> (for example a customer code or an expense code) is added so the entry goes to the right account.</p>
+
+    <h2>2 · VAT and discounts</h2>
+    <p>UK VAT-registered businesses add VAT to what they sell (<b>output VAT</b>) and reclaim VAT on what they buy (<b>input VAT</b>). The difference is paid to, or reclaimed from, HMRC. The standard rate is 20%, with 5% reduced and 0% zero-rated.</p>
+    <div class="formula">VAT = net × 20% &nbsp;·&nbsp; Gross = net × 1.20 &nbsp;·&nbsp; Net = gross ÷ 1.20</div>
+    <div class="grid2">
+      <div class="card"><h3>Trade discount</h3><p>A reduction off the list price, given to a customer for buying regularly or in bulk. It is taken off <b>before</b> VAT and is never recorded in the ledgers.</p></div>
+      <div class="card"><h3>Settlement discount</h3><p>A reduction offered for paying early. VAT is worked out on the <b>discounted</b> amount. If the customer pays late and loses the discount, the full amount is due.</p></div>
+    </div>
+
+    <h2>3 · Books of prime entry</h2>
+    <div class="tw"><table class="t">
+      <tr><th>Book</th><th>What goes in it</th></tr>
+      <tr><td>Sales day book</td><td>Invoices issued to credit customers</td></tr>
+      <tr><td>Purchases day book</td><td>Invoices received from credit suppliers</td></tr>
+      <tr><td>Sales returns day book</td><td>Credit notes issued to customers</td></tr>
+      <tr><td>Purchases returns day book</td><td>Credit notes received from suppliers</td></tr>
+      <tr><td>Cash book</td><td>Money paid in and out of the bank (and cash)</td></tr>
+      <tr><td>Petty cash book</td><td>Small payments from the cash float, backed by vouchers</td></tr>
+      <tr><td>Journal</td><td>Anything that does not fit elsewhere: opening entries, corrections, write-offs</td></tr>
+    </table></div>
+    <p>A day book is a <b>list</b>, not part of double-entry on its own. The totals are posted to the ledger. Petty cash usually works on the <b>imprest system</b>: a fixed float is topped up to the same amount each time, so the top-up equals what was spent.</p>
+
+    <h2>4 · Double-entry</h2>
+    <p>Every transaction has two effects, one <b>debit</b> and one <b>credit</b>, of the same amount. A simple way to remember it is <b>DEAD CLIC</b>.</p>
+    <div class="tw"><table class="t">
+      <tr><th></th><th>Increase</th><th>Decrease</th></tr>
+      <tr><td><b>D</b>rawings, <b>E</b>xpenses, <b>A</b>ssets</td><td>Debit</td><td>Credit</td></tr>
+      <tr><td><b>C</b>apital, <b>L</b>iabilities, <b>I</b>ncome</td><td>Credit</td><td>Debit</td></tr>
+    </table></div>
+    <div class="tip"><b class="h">Credit sale, £1,000 + £200 VAT</b>Debit Sales ledger control £1,200 (customers owe more). Credit Sales £1,000 (income). Credit VAT control £200 (a liability to HMRC). Debits £1,200 = credits £1,200.</div>
+    <p>The <b>sales ledger</b> holds an account for each customer; the <b>purchases ledger</b> one for each supplier. The <b>general ledger</b> holds everything else, including the control accounts, sales, purchases, expenses and VAT.</p>
+
+    <h2>5 · The trial balance</h2>
+    <p>List every ledger balance in a debit column or a credit column. If the totals match, the books balance. If they do not, there is an error somewhere (Unit 2 covers finding it). A balanced trial balance does <b>not</b> prove the books are free of mistakes.</p>
+  </div>
+
+  <div class="sp" id="u1-watch" role="tabpanel" hidden>
+    <h2>1 · From document to trial balance</h2>
+    <p>Press Play, or jump with the numbered steps.</p>
+    <div id="u1st1"></div>
+    <h2>2 · A credit sale in T-accounts</h2>
+    <div id="u1st2"></div>
+
+    <h2>Lab · Invoice calculator</h2>
+    <p>Set a list price, a trade discount and a VAT rate. See the invoice build up and the double-entry that follows.</p>
+    <div class="grid2">
+      <div class="card"><div id="u1sl1"></div><div id="u1sl2"></div><div id="u1sl3"></div>
+        <div class="readout"><div><small>After discount (net)</small><strong id="u1r1"></strong></div><div><small>VAT</small><strong id="u1r2"></strong></div><div><small>Invoice total</small><strong id="u1r3"></strong></div></div>
+        <div class="verdict" id="u1v"></div></div>
+      <div class="card"><svg id="u1lab" viewBox="0 0 420 260" role="img" aria-label="Invoice split into net and VAT"></svg></div>
+    </div>
+  </div>
+
+  <div class="sp" id="u1-practise" role="tabpanel" hidden>
+    <h2>1 · Which book of prime entry?</h2>
+    <p>Drag each transaction into the right book. Tap an item, then a box, if dragging is awkward.</p>
+    <div id="u1cl1" class="card"></div>
+    <h2>2 · Debit or credit?</h2>
+    <p>Think about the account that is <b>increasing</b> in each case.</p>
+    <div id="u1cl2" class="card"></div>
+    <h2>3 · Match the document to its job</h2>
+    <div id="u1m1" class="card"></div>
+    <h2>4 · Put the credit sale process in order</h2>
+    <div id="u1o1" class="card"></div>
+    <h2>5 · Calculations</h2>
+    <p>Enter amounts in pounds without the £ sign.</p>
+    <div id="u1c1"></div>
+    <h2>6 · Multiple choice</h2>
+    <div id="u1qz"></div>
+  </div>
+
+  <div class="sp" id="u1-real" role="tabpanel" hidden>
+    <p class="note">Examples are described in general terms so they stay true. Check current rules and thresholds on GOV.UK before relying on them.</p>
+    <div class="rw"><h3>A plumber who just passed the VAT threshold</h3><p>Once taxable turnover goes over the registration threshold (£90,000 a year at the time of writing), a business must register for VAT, charge it on sales and file returns. Every quote then needs a net figure, VAT and a total. Getting the rate wrong on an invoice means either owing HMRC the difference or having to reissue the invoice.</p><div class="use"><b>Exam use:</b> a quick sense check for VAT questions: output VAT is a liability, input VAT is an asset claimed back.</div></div>
+    <div class="rw"><h3>Accounting software such as Xero, Sage and QuickBooks</h3><p>Software lets you pick a customer, raise an invoice and post the entries to the sales ledger, the VAT account and the general ledger in one go. The ledger codes you learn here are the same ones you choose from a drop-down in practice.</p><div class="use"><b>Exam use:</b> shows why correct coding and VAT rates matter even when the maths is automatic.</div></div>
+    <div class="rw"><h3>Making Tax Digital for VAT</h3><p>VAT-registered businesses keep digital records and send VAT returns to HMRC using compatible software. Clean bookkeeping is therefore a legal requirement, not just good housekeeping.</p><div class="use"><b>Exam use:</b> useful background when you explain why records must be accurate and kept up to date.</div></div>
+    <div class="rw"><h3>The petty cash tin in a small office</h3><p>Staff buy stamps, milk and parking from a float. Each payment needs a voucher and a receipt. At the end of the week the cashier tops the float back up to, say, £150 by the amount spent.</p><div class="use"><b>Exam use:</b> a clear example of the imprest system and of why vouchers must be authorised.</div></div>
+
+    <h2>Top tips</h2>
+    <ul class="tips">
+      <li><b>Always net first.</b> Take off any trade discount, then work out VAT on what is left.</li>
+      <li><b>Say the account twice.</b> "Debit the sales ledger control account, credit sales" beats "debit and credit".</li>
+      <li><b>Check the gross.</b> Gross divided by 1.2 should give a sensible net figure.</li>
+      <li><b>Credit notes mirror invoices.</b> Same VAT logic, opposite side of the ledger.</li>
+      <li><b>Day books are lists.</b> The ledger entries come from the totals.</li>
+      <li><b>Read the question for the date and the account name</b> before posting.</li>
+      <li><b>If the trial balance does not balance,</b> do not force it. Check additions, then transpositions (a difference divisible by 9 is a hint).</li>
+    </ul>
+    <h2>Keyword flashcards</h2>
+    <div id="u1fc"></div>
+  </div>
+
+  <div class="sp" id="u1-exam" role="tabpanel" hidden>
+    <h2>Exam-style tasks</h2>
+    <p>AAT assessments are computer-based and task-led, with marks for method and for accuracy. Open each task for the reminder, the model answer and the common mistake.</p>
+    <div class="key" aria-label="Colour key"><span class="k"><i></i>Method (M)</span><span class="a"><i></i>Answer (A)</span></div>
+
+    <details class="eq"><summary>Task 1 <span class="cmd">Calculate</span> <span class="mark">4 marks</span> An invoice has a list price of £2,400. A trade discount of 25% applies, and VAT is charged at 20%. Calculate the net amount, the VAT and the invoice total.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Discount first, then VAT on the discounted figure. Write each line separately so you collect the method marks even if the arithmetic slips.</div>
+      <div class="ans"><span class="mk k" data-t="M">Discount = £2,400 × 25% = £600.</span> <span class="mk a" data-t="A">Net = £1,800.</span> <span class="mk k" data-t="M">VAT = £1,800 × 20%</span> <span class="mk a" data-t="A">= £360. Invoice total = £2,160.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Working out VAT on £2,400 (£480) and then deducting the discount. VAT is charged on the discounted net.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 2 <span class="cmd">Complete</span> <span class="mark">5 marks</span> A credit sale to a customer is £3,500 net plus VAT at 20%. Show the journal entries in the general ledger and the sales ledger control account.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Work out the gross first: it is what the customer owes. Then decide the two or three accounts affected and which side each is on.</div>
+      <div class="ans"><span class="mk k" data-t="M">VAT = £3,500 × 20% = £700, gross = £4,200.</span> <span class="mk a" data-t="A">Debit Sales ledger control account £4,200.</span> <span class="mk a" data-t="A">Credit Sales £3,500.</span> <span class="mk a" data-t="A">Credit VAT control account £700.</span> <span class="mk k" data-t="M">Total debits £4,200 equals total credits £4,200.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Crediting VAT with the gross figure, or debiting Sales. A sale is income, so it is a credit.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 3 <span class="cmd">Calculate</span> <span class="mark">4 marks</span> A supplier offers a 5% settlement discount for payment within 10 days on an invoice of £1,000 plus VAT at 20%. What does the business pay if it takes the discount?</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>When a settlement discount is on offer, VAT is calculated on the discounted amount.</div>
+      <div class="ans"><span class="mk k" data-t="M">Discounted net = £1,000 × 95% = £950.</span> <span class="mk k" data-t="M">VAT = £950 × 20%</span> <span class="mk a" data-t="A">= £190.</span> <span class="mk a" data-t="A">Amount paid = £1,140.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Charging VAT on the full £1,000 (£200) and giving £1,150. When a settlement discount is on offer, the VAT figure on the invoice is based on the discounted net.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 4 <span class="cmd">Explain</span> <span class="mark">4 marks</span> Explain why a business keeps books of prime entry rather than posting every document straight to the ledgers.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Two reasons, each developed. Link back to efficiency and accuracy.</div>
+      <div class="ans"><span class="mk k" data-t="K">Books of prime entry group similar transactions in one place before they are posted.</span> <span class="mk n" data-t="N">This means totals can be posted rather than every document, which tends to save time and reduce the chance of posting errors.</span> <span class="mk k" data-t="K">They also provide a record in date order of each type of transaction.</span> <span class="mk a" data-t="A">For example, a sales day book lets a business check that every invoice raised in the month has been recorded before the sales ledger control account is updated.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Saying they are "where the double-entry is done". Double-entry happens in the ledgers.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 5 <span class="cmd">Identify</span> <span class="mark">3 marks</span> The debit column of a trial balance totals £67,480 and the credit column totals £61,930 before capital of £5,550 is added. Is the trial balance now balanced?</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Add the missing figure to the short side, then compare.</div>
+      <div class="ans"><span class="mk k" data-t="M">Credits = £61,930 + £5,550 = £67,480.</span> <span class="mk a" data-t="A">This equals the debit total of £67,480, so the trial balance is balanced.</span> <span class="mk a" data-t="A">That shows debits equal credits, but not that every entry is correct.</span></div>
+    </div></details>
+  </div>
+</section>
+<section id="u2" role="tabpanel" hidden>
+  <nav class="sub" aria-label="Unit 2 sections">
+    <button role="tab" data-sp="u2-learn">Learn</button>
+    <button role="tab" data-sp="u2-watch">Watch &amp; explore</button>
+    <button role="tab" data-sp="u2-practise">Practise</button>
+    <button role="tab" data-sp="u2-real">Real world &amp; tips</button>
+    <button role="tab" data-sp="u2-exam">Exam questions</button>
+  </nav>
+
+  <div class="sp" id="u2-learn" role="tabpanel">
+    <div class="card big"><h3>The big idea</h3>
+      <p>Unit 1 gets transactions into the books. Unit 2 checks that the books are <b>right</b>. You compare your records with outside evidence (the bank statement, supplier statements, the individual customer and supplier accounts), find the differences, explain them, and correct them with <b>journal entries</b>.</p></div>
+
+    <h2>1 · Bank reconciliation</h2>
+    <p>The <span class="kw">cash book</span> is your record of the bank account; the <span class="kw">bank statement</span> is the bank's. They rarely agree on the same day, for two kinds of reason.</p>
+    <div class="grid2">
+      <div class="card"><h3>Timing differences</h3><p>Already in your cash book, not yet through the bank. <b>No cash book entry needed.</b></p><ul><li><b>Unpresented cheques:</b> you wrote them, they have not cleared.</li><li><b>Outstanding lodgements:</b> you paid money in, it has not yet appeared.</li></ul></div>
+      <div class="card"><h3>Items missing from the cash book</h3><p>On the statement, not yet in your records. <b>Update the cash book.</b></p><ul><li>Bank charges and interest</li><li>Direct debits and standing orders</li><li>BACS or other receipts not yet recorded</li><li>Dishonoured (bounced) cheques</li><li>Errors in the cash book</li></ul></div>
+    </div>
+    <p><b>Method.</b> Tick matching items. Update the cash book for the second group and find the new balance. Then show the reconciliation:</p>
+    <div class="formula">Bank statement balance − unpresented cheques + outstanding lodgements = updated cash book balance</div>
+
+    <h2>2 · Control accounts</h2>
+    <p>A <span class="kw">control account</span> is a summary in the general ledger of all the individual accounts in the sales or purchases ledger. Its balance should equal the <b>total of the individual balances</b>. If it does not, there is a mistake in one of them.</p>
+    <div class="tw"><table class="t">
+      <tr><th>Sales ledger control (debit balance)</th><th>Purchases ledger control (credit balance)</th></tr>
+      <tr><td>Debit: credit sales (gross, from the sales day book)</td><td>Credit: credit purchases (gross, from the purchases day book)</td></tr>
+      <tr><td>Credit: receipts from customers, sales returns, discounts allowed</td><td>Debit: payments to suppliers, purchases returns, discounts received</td></tr>
+    </table></div>
+    <p>Also reconcile each <b>supplier statement</b> to the supplier's account in your purchases ledger. Differences are usually items in transit, invoices or credit notes not yet entered, or payments not yet recorded by the supplier.</p>
+
+    <h2>3 · Errors and the journal</h2>
+    <p>A <span class="kw">journal</span> entry records a correction. Each has the date, accounts, debit and credit amounts, a narrative that says what and why, and an authorisation.</p>
+    <div class="tw"><table class="t">
+      <tr><th>Error</th><th>What happened</th><th>Trial balance?</th></tr>
+      <tr><td>Omission</td><td>A transaction was missed entirely (both sides)</td><td>Still balances</td></tr>
+      <tr><td>Commission</td><td>Right type of account, wrong account (rent posted to rates)</td><td>Still balances</td></tr>
+      <tr><td>Principle</td><td>Wrong type of account (a vehicle posted as an expense)</td><td>Still balances</td></tr>
+      <tr><td>Original entry</td><td>Wrong figure used on both sides (£540 entered as £450 in both)</td><td>Still balances</td></tr>
+      <tr><td>Reversal</td><td>Debit and credit the wrong way round</td><td>Still balances</td></tr>
+      <tr><td>Compensating</td><td>Two errors cancel each other out</td><td>Still balances</td></tr>
+      <tr><td>One-sided entry, transposition on one side, wrong addition</td><td>Debits no longer equal credits</td><td><b>Does not balance</b></td></tr>
+    </table></div>
+
+    <h2>4 · The suspense account</h2>
+    <p>If the trial balance does not balance you may put the difference in a <span class="kw">suspense account</span> so that it does, <b>temporarily</b>. If total debits are short, the suspense balance is a debit; if credits are short, a credit. When the error is found, a journal posts the correction and clears the suspense account to nil.</p>
+    <div class="tip"><b class="h">Order matters</b>Find the error → decide the correct entry → journal it → check the suspense account is now nil. If it is not, you have not found everything.</div>
+  </div>
+
+  <div class="sp" id="u2-watch" role="tabpanel" hidden>
+    <h2>1 · Reconciling the bank</h2>
+    <div id="u2st1"></div>
+    <h2>2 · Clearing the suspense account</h2>
+    <div id="u2st2"></div>
+
+    <h2>Lab · Why the cash book and bank statement disagree</h2>
+    <p>The bank statement shows £5,000. Add timing differences and unrecorded items, then see the cash book balance you started with. A hidden mistake (slider 4) is the difference you cannot explain.</p>
+    <div class="grid2">
+      <div class="card"><div id="u2sl1"></div><div id="u2sl2"></div><div id="u2sl3"></div><div id="u2sl4"></div>
+        <div class="readout"><div><small>Reconciled balance</small><strong id="u2r1"></strong></div><div><small>Cash book before updating</small><strong id="u2r2"></strong></div><div><small>Unexplained difference</small><strong id="u2r3"></strong></div></div>
+        <div class="verdict" id="u2v"></div></div>
+      <div class="card"><svg id="u2lab" viewBox="0 0 420 280" role="img" aria-label="Bank statement balance adjusted to the reconciled balance"></svg></div>
+    </div>
+  </div>
+
+  <div class="sp" id="u2-practise" role="tabpanel" hidden>
+    <h2>1 · Update the cash book, or just list it?</h2>
+    <div id="u2cl1" class="card"></div>
+    <h2>2 · Name the error</h2>
+    <div id="u2m1" class="card"></div>
+    <h2>3 · Does the trial balance still balance?</h2>
+    <div id="u2cl2" class="card"></div>
+    <h2>4 · Put the bank reconciliation in order</h2>
+    <div id="u2o1" class="card"></div>
+    <h2>5 · Calculations</h2>
+    <div id="u2c1"></div>
+    <h2>6 · Multiple choice</h2>
+    <div id="u2qz"></div>
+  </div>
+
+  <div class="sp" id="u2-real" role="tabpanel" hidden>
+    <p class="note">Scenarios are typical of office practice rather than named companies.</p>
+    <div class="rw"><h3>The month-end bank rec</h3><p>Most small and mid-sized businesses reconcile the bank at least monthly, often weekly. Software imports the bank feed and suggests matches, but a person still decides what to do with items it cannot match, such as an unexplained payment or a duplicate.</p><div class="use"><b>Exam use:</b> bank charges and direct debits are the usual "adjust the cash book" items. Cheques and lodgements in transit go in the reconciliation only.</div></div>
+    <div class="rw"><h3>Chasing a supplier statement</h3><p>A supplier emails a statement showing £3,250 owed. Your ledger says £3,070. The difference is an invoice you never received or entered. Before the payment run, the purchases ledger clerk finds it, enters it and either pays or queries it.</p><div class="use"><b>Exam use:</b> a typical supplier statement reconciliation: identify the item, decide which side needs correcting, and say what to do.</div></div>
+    <div class="rw"><h3>Fraud and mistakes spotted by reconciliations</h3><p>Duplicate payments, payments to the wrong account and altered cheques are often found because someone reconciles the bank or a control account and asks about an item they cannot explain.</p><div class="use"><b>Exam use:</b> links Unit 2 to ethics and professional scepticism in Unit 4.</div></div>
+    <div class="rw"><h3>The suspense account that is never cleared</h3><p>Leaving a balance in suspense because "it is only small" means the accounts are wrong and the cause is unknown. Employers expect it to be investigated and cleared before the accounts are produced.</p><div class="use"><b>Exam use:</b> say that a suspense account is a temporary holding place, not a solution.</div></div>
+
+    <h2>Top tips</h2>
+    <ul class="tips">
+      <li><b>Tick, then total.</b> Tick every matched item on both sides before listing what is left.</li>
+      <li><b>Timing differences are never journalled.</b> They are not mistakes.</li>
+      <li><b>Know the formula direction:</b> statement − unpresented cheques + outstanding lodgements.</li>
+      <li><b>Journal narratives matter.</b> Say what was wrong and what the entry corrects.</li>
+      <li><b>Debit or credit suspense?</b> Look at which column of the trial balance was short.</li>
+      <li><b>A balancing trial balance is not proof of accuracy.</b> Six error types do not show up.</li>
+      <li><b>Control account difference?</b> Check additions in the day books, then individual postings.</li>
+    </ul>
+    <h2>Keyword flashcards</h2>
+    <div id="u2fc"></div>
+  </div>
+
+  <div class="sp" id="u2-exam" role="tabpanel" hidden>
+    <h2>Exam-style tasks</h2>
+    <div class="key" aria-label="Colour key"><span class="k"><i></i>Method (M)</span><span class="a"><i></i>Answer (A)</span><span class="n"><i></i>Explanation (N)</span></div>
+
+    <details class="eq"><summary>Task 1 <span class="cmd">Reconcile</span> <span class="mark">6 marks</span> The cash book shows a balance of £3,420 (debit). The bank statement shows £4,615. Bank charges of £35 and a direct debit of £120 are not in the cash book, and a BACS receipt of £500 is not in the cash book. Unpresented cheques are £1,100 and an outstanding lodgement is £250. Update the cash book and prepare the reconciliation.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Do the cash book update first, then reconcile from the bank statement to the updated figure. The two should agree.</div>
+      <div class="ans"><span class="mk k" data-t="M">Updated cash book: £3,420 − £35 − £120 + £500</span> <span class="mk a" data-t="A">= £3,765.</span> <span class="mk k" data-t="M">Reconciliation: £4,615 − £1,100 (unpresented cheques) + £250 (outstanding lodgement)</span> <span class="mk a" data-t="A">= £3,765.</span> <span class="mk n" data-t="N">The balances agree, so the cash book and the bank statement are reconciled.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Adjusting the cash book for unpresented cheques. Those are timing differences and belong only in the reconciliation.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 2 <span class="cmd">Calculate</span> <span class="mark">4 marks</span> Opening sales ledger control account balance is £12,400. Credit sales (including VAT) were £30,000, receipts £27,500 and sales returns (including VAT) £1,200. Calculate the closing balance. The list of customer balances totals £13,450. What does this indicate?</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Debit side: opening balance plus sales. Credit side: receipts and returns. Compare with the total of the individual accounts.</div>
+      <div class="ans"><span class="mk k" data-t="M">£12,400 + £30,000 − £27,500 − £1,200</span> <span class="mk a" data-t="A">= £13,700.</span> <span class="mk n" data-t="N">The individual balances total £13,450, a difference of £250.</span> <span class="mk n" data-t="N">That suggests an error either in the control account or in the individual customer accounts, such as a posting that has been missed or entered twice, which would need to be investigated.</span></div>
+    </div></details>
+
+    <details class="eq"><summary>Task 3 <span class="cmd">Prepare</span> <span class="mark">5 marks</span> The trial balance shows debits of £52,310 and credits of £52,400. A suspense account has been opened. It is then found that a rent payment of £540 was debited to the rent account as £450, with the credit to bank correct. Prepare the journal and state the effect on the suspense account.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>First identify which side the suspense balance is on. Then ask what the correct entry should have been compared with what was posted.</div>
+      <div class="ans"><span class="mk k" data-t="M">Debits are £90 short, so the suspense account has a debit balance of £90.</span> <span class="mk k" data-t="M">Rent should be £540 but was posted as £450, so rent needs a further debit of £90.</span> <span class="mk a" data-t="A">Journal: Debit Rent £90, Credit Suspense £90.</span> <span class="mk a" data-t="A">Narrative: correction of a transposition error on the rent payment.</span> <span class="mk n" data-t="N">After the journal the suspense account has a nil balance.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Debiting suspense. It already holds a £90 debit; the journal must credit it to clear it.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 4 <span class="cmd">Identify</span> <span class="mark">3 marks</span> For each error, state whether the trial balance would still balance: (a) a £250 purchase invoice was omitted entirely; (b) a £300 payment was debited to the supplier account but the credit to bank was never posted; (c) a sale was posted as a debit to sales and a credit to the customer.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Ask whether both sides of the entry were affected equally.</div>
+      <div class="ans"><span class="mk a" data-t="A">(a) Still balances. Both sides were omitted (error of omission).</span> <span class="mk a" data-t="A">(b) Does not balance. Only one side was posted (a single-sided entry), so debits exceed credits by £300.</span> <span class="mk a" data-t="A">(c) Still balances. Debit and credit are the wrong way round (reversal).</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Assuming every error breaks the trial balance. Only some do, which is why other checks are needed.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 5 <span class="cmd">Explain</span> <span class="mark">4 marks</span> Explain why a business should reconcile supplier statements to its purchases ledger.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Give two benefits, one linked to accuracy and one to relationships or cash.</div>
+      <div class="ans"><span class="mk k" data-t="K">Reconciling shows differences between what the supplier thinks is owed and what the business has recorded.</span> <span class="mk n" data-t="N">This is likely to reveal missing invoices, credit notes not yet received or payments not yet recorded, so the ledger can be corrected before the accounts are produced.</span> <span class="mk n" data-t="N">It may also prevent overpaying or paying late, which can protect the relationship with the supplier and any early-payment discounts.</span> <span class="mk a" data-t="A">For example, an unrecorded £180 invoice could cause a payment run to be wrong by that amount.</span></div>
+    </div></details>
+  </div>
+</section>
+<section id="u3" role="tabpanel" hidden>
+  <nav class="sub" aria-label="Unit 3 sections">
+    <button role="tab" data-sp="u3-learn">Learn</button>
+    <button role="tab" data-sp="u3-watch">Watch &amp; explore</button>
+    <button role="tab" data-sp="u3-practise">Practise</button>
+    <button role="tab" data-sp="u3-real">Real world &amp; tips</button>
+    <button role="tab" data-sp="u3-exam">Exam questions</button>
+  </nav>
+
+  <div class="sp" id="u3-learn" role="tabpanel">
+    <div class="card big"><h3>The big idea</h3>
+      <p>Financial accounting looks back at what happened. <span class="kw">Costing</span> looks inside the business: what does it cost to make one unit, where do the costs arise, and how do they change as output changes? The answers feed pricing, budgets and decisions.</p></div>
+
+    <h2>1 · Cost classification</h2>
+    <div class="grid2">
+      <div class="card"><h3>By element</h3><ul><li><b>Materials:</b> things used up in making the product or service</li><li><b>Labour:</b> wages and salaries of the people doing the work</li><li><b>Expenses:</b> everything else (rent, power, insurance)</li></ul></div>
+      <div class="card"><h3>By traceability</h3><ul><li><b>Direct:</b> traced to one cost unit (the wood in a table)</li><li><b>Indirect (overhead):</b> shared and not traceable (factory rent, supervisor pay)</li></ul><p class="note">Direct materials + direct labour + direct expenses = <b>prime cost</b>.</p></div>
+      <div class="card"><h3>By behaviour</h3><ul><li><b>Fixed:</b> stays the same as output changes (rent)</li><li><b>Variable:</b> changes in proportion to output (materials)</li><li><b>Semi-variable:</b> a fixed part plus a variable part (electricity with a standing charge)</li><li><b>Stepped:</b> fixed within a range, then jumps (a second supervisor once output passes a level)</li></ul></div>
+      <div class="card"><h3>By function</h3><p>Production, administration, selling and distribution, finance. The same cost can be direct for one purpose and an overhead for another, depending on what the cost unit is.</p></div>
+    </div>
+    <div class="tw"><table class="t">
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>Cost unit</td><td>The thing we measure cost for: a product, a batch, a patient, a job, a mile</td></tr>
+      <tr><td>Cost centre</td><td>A department or area that costs are collected against (the canteen, the packing line)</td></tr>
+      <tr><td>Profit centre</td><td>A part of the business that earns revenue as well as incurring costs</td></tr>
+      <tr><td>Cost code</td><td>A short code that identifies the cost type and cost centre, so entries go to the right place</td></tr>
+    </table></div>
+
+    <h2>2 · Recording and valuing materials</h2>
+    <p>When stock is bought at different prices, a method is needed to say <b>what each issue to production cost</b> and what the closing stock is worth.</p>
+    <div class="tw"><table class="t">
+      <tr><th>Method</th><th>Issues are costed at</th><th>When prices are rising</th></tr>
+      <tr><td><b>FIFO</b> (first in, first out)</td><td>The oldest price first</td><td>Lower issue cost, higher closing stock value</td></tr>
+      <tr><td><b>LIFO</b> (last in, first out)</td><td>The newest price first</td><td>Higher issue cost, lower closing stock value</td></tr>
+      <tr><td><b>AVCO</b> (average cost)</td><td>A weighted average, recalculated after each receipt</td><td>In between</td></tr>
+    </table></div>
+    <p>Alongside this, businesses set a <b>reorder level</b> (order when stock falls to here) and keep a <b>minimum</b> and <b>maximum</b> stock level, so they neither run out nor tie up cash.</p>
+
+    <h2>3 · Labour costs</h2>
+    <ul>
+      <li><b>Time rate:</b> hours worked × hourly rate. Overtime hours are paid at a premium, for example time and a half (× 1.5).</li>
+      <li><b>Piecework:</b> units produced × a rate per unit. Often a guaranteed minimum is paid.</li>
+      <li><b>Bonus or commission:</b> an extra payment for meeting targets or making sales.</li>
+    </ul>
+    <p>Gross pay is the cost to the business before deductions such as tax and National Insurance. Overtime for a specific job can be direct labour; general overtime is usually an overhead.</p>
+
+    <h2>4 · Overheads and absorption</h2>
+    <p>Overheads cannot be traced to a unit, so they are <b>absorbed</b> using a rate based on a budget.</p>
+    <div class="formula">Overhead absorption rate = budgeted overheads ÷ budgeted activity (labour hours, machine hours or units)</div>
+    <p>Overhead per unit = rate × hours (or per unit of the base) used by that unit.</p>
+
+    <h2>5 · Total cost and unit cost</h2>
+    <div class="formula">Total cost = direct materials + direct labour + direct expenses + absorbed overheads</div>
+    <div class="formula">Unit cost = total cost ÷ units &nbsp;·&nbsp; Selling price with a mark-up of 25% = cost × 1.25</div>
+  </div>
+
+  <div class="sp" id="u3-watch" role="tabpanel" hidden>
+    <h2>1 · How costs behave as output rises</h2>
+    <div id="u3st1"></div>
+    <h2>2 · Building up the selling price</h2>
+    <div id="u3st2"></div>
+
+    <h2>Lab 1 · Fixed, variable and cost per unit</h2>
+    <p>Fixed costs are £3,000 a month; variable costs are £2 per unit. Move output and watch the cost per unit.</p>
+    <div class="grid2">
+      <div class="card"><div id="u3sl1"></div>
+        <div class="readout"><div><small>Fixed cost</small><strong id="u3a1"></strong></div><div><small>Variable cost</small><strong id="u3a2"></strong></div><div><small>Total cost</small><strong id="u3a3"></strong></div><div><small>Cost per unit</small><strong id="u3a4"></strong></div></div>
+        <div class="verdict" id="u3v1"></div></div>
+      <div class="card"><svg id="u3lab1" viewBox="0 0 420 300" role="img" aria-label="Total cost against output"></svg></div>
+    </div>
+
+    <h2>Lab 2 · Overhead absorption</h2>
+    <p>Change the budget and the activity level. A job uses a set number of labour hours.</p>
+    <div class="grid2">
+      <div class="card"><div id="u3sl2"></div><div id="u3sl3"></div><div id="u3sl4"></div>
+        <div class="readout"><div><small>Absorption rate per hour</small><strong id="u3b1"></strong></div><div><small>Overhead on this job</small><strong id="u3b2"></strong></div></div>
+        <div class="verdict" id="u3v2"></div></div>
+      <div class="card"><svg id="u3lab2" viewBox="0 0 420 220" role="img" aria-label="Overhead per hour and overhead on the job"></svg></div>
+    </div>
+  </div>
+
+  <div class="sp" id="u3-practise" role="tabpanel" hidden>
+    <h2>1 · Direct or indirect?</h2>
+    <div id="u3cl1" class="card"></div>
+    <h2>2 · Fixed, variable, semi-variable or stepped?</h2>
+    <div id="u3cl2" class="card"></div>
+    <h2>3 · Match the term</h2>
+    <div id="u3m1" class="card"></div>
+    <h2>4 · Order the steps for a unit cost</h2>
+    <div id="u3o1" class="card"></div>
+    <h2>5 · Calculations</h2>
+    <p>Enter pounds, with decimals where needed.</p>
+    <div id="u3c1"></div>
+    <h2>6 · Multiple choice</h2>
+    <div id="u3qz"></div>
+  </div>
+
+  <div class="sp" id="u3-real" role="tabpanel" hidden>
+    <p class="note">General examples, so they stay true. Use them to show you can apply the technique to a real setting.</p>
+    <div class="rw"><h3>A bakery</h3><p>Flour and butter are direct materials. The baker's wages for the shift are direct labour. Oven electricity is a semi-variable cost, and the shop rent is a fixed overhead. The cost unit might be one loaf or a tray of 12.</p><div class="use"><b>Exam use:</b> one business, every cost type. Quote the cost unit before you classify.</div></div>
+    <div class="rw"><h3>A café choosing a price</h3><p>Ingredients, staff time and a share of rent and utilities give a total cost per coffee. A mark-up on cost sets the menu price. If rent rises, the overhead rate rises, so either the margin falls or the price needs to.</p><div class="use"><b>Exam use:</b> shows how absorption costing and mark-up connect, a standard final step in costing tasks.</div></div>
+    <div class="rw"><h3>A hospital ward as a cost centre</h3><p>Nursing pay, medicines and equipment are collected against the ward, and a cost unit might be a patient day. Managers compare cost per patient day across wards to find what is out of line.</p><div class="use"><b>Exam use:</b> a useful non-manufacturing example of cost centre and cost unit.</div></div>
+    <div class="rw"><h3>Rising prices and stock valuation</h3><p>If a retailer's supplier prices keep going up, FIFO tends to report higher profit than LIFO because older, cheaper costs are matched to sales. Many businesses use FIFO or AVCO for simplicity.</p><div class="use"><b>Exam use:</b> explains why the stock method changes profit and closing stock, even though the physical goods are the same.</div></div>
+
+    <h2>Top tips</h2>
+    <ul class="tips">
+      <li><b>Name the cost unit first.</b> Direct or indirect depends on it.</li>
+      <li><b>Show the stock card.</b> Date, receipts, issues and balance, with units and values.</li>
+      <li><b>FIFO issues oldest, LIFO issues newest.</b> Check the layer you are depleting.</li>
+      <li><b>AVCO:</b> recalculate after each receipt, using total value ÷ total units.</li>
+      <li><b>Overtime premium only.</b> Check whether the question wants all overtime pay or just the extra half.</li>
+      <li><b>Absorption rate uses budgets.</b> Do not use actual figures unless asked.</li>
+      <li><b>Fixed cost per unit falls as output rises.</b> Variable cost per unit stays the same.</li>
+    </ul>
+    <h2>Keyword flashcards</h2>
+    <div id="u3fc"></div>
+  </div>
+
+  <div class="sp" id="u3-exam" role="tabpanel" hidden>
+    <h2>Exam-style tasks</h2>
+    <div class="key" aria-label="Colour key"><span class="k"><i></i>Method (M)</span><span class="a"><i></i>Answer (A)</span><span class="n"><i></i>Explanation (N)</span></div>
+
+    <details class="eq"><summary>Task 1 <span class="cmd">Calculate</span> <span class="mark">6 marks</span> A stock card shows: opening stock 100 units at £4.00; a receipt of 200 units at £5.00; then an issue of 150 units. Calculate the cost of the issue and the value of closing stock using FIFO.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>FIFO uses the oldest stock first, so deplete the 100 units at £4 before touching the £5 batch.</div>
+      <div class="ans"><span class="mk k" data-t="M">Issue = 100 × £4 + 50 × £5</span> <span class="mk a" data-t="A">= £400 + £250 = £650.</span> <span class="mk k" data-t="M">Closing stock = 150 units × £5</span> <span class="mk a" data-t="A">= £750.</span> <span class="mk n" data-t="N">Check: total cost of stock available £1,400 = issue £650 + closing £750.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Using the average. That is AVCO. With LIFO the same issue would cost 150 × £5 = £750.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 2 <span class="cmd">Calculate</span> <span class="mark">5 marks</span> An employee works a 37-hour week at £12.00 an hour. Hours beyond 37 are paid at time and a half. She works 42 hours. Calculate her gross pay, and the overtime premium only.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Split basic and overtime. The premium is the extra 0.5 per overtime hour.</div>
+      <div class="ans"><span class="mk k" data-t="M">Basic = 37 × £12.00</span> <span class="mk a" data-t="A">= £444.</span> <span class="mk k" data-t="M">Overtime = 5 × £18.00</span> <span class="mk a" data-t="A">= £90. Gross pay = £534.</span> <span class="mk a" data-t="A">Premium only = 5 × £6.00 = £30.</span></div>
+    </div></details>
+
+    <details class="eq"><summary>Task 3 <span class="cmd">Calculate</span> <span class="mark">6 marks</span> Budgeted overheads are £84,000 and budgeted labour hours are 7,000. A product uses direct materials £6.50, direct labour £4.00 and direct expenses £0.50, and takes 0.5 labour hours. Calculate the absorption rate, the total cost per unit and the selling price with a 25% mark-up.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Rate first, then overhead per unit, then total cost, then the mark-up on cost.</div>
+      <div class="ans"><span class="mk k" data-t="M">Rate = £84,000 ÷ 7,000</span> <span class="mk a" data-t="A">= £12 per hour.</span> <span class="mk k" data-t="M">Overhead per unit = 0.5 × £12</span> <span class="mk a" data-t="A">= £6.00.</span> <span class="mk a" data-t="A">Total cost = £6.50 + £4.00 + £0.50 + £6.00 = £17.00.</span> <span class="mk a" data-t="A">Price = £17.00 × 1.25 = £21.25.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Using a mark-up of 25% on selling price instead of cost. "Mark-up" is on cost; "margin" is on the selling price.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 4 <span class="cmd">Classify</span> <span class="mark">4 marks</span> A furniture maker pays: (a) £30,000 a year rent for the workshop, (b) £8 per table for wood, (c) £15 per hour to a carpenter on a specific order, (d) electricity with a £120 monthly standing charge plus £0.15 per unit used. Classify each by traceability and behaviour.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Two labels each: traceability (direct or indirect) and behaviour (fixed, variable, semi-variable).</div>
+      <div class="ans"><span class="mk a" data-t="A">(a) Indirect (overhead), fixed.</span> <span class="mk a" data-t="A">(b) Direct material, variable.</span> <span class="mk a" data-t="A">(c) Direct labour, variable with hours worked on the order.</span> <span class="mk a" data-t="A">(d) Indirect, semi-variable.</span></div>
+    </div></details>
+
+    <details class="eq"><summary>Task 5 <span class="cmd">Explain</span> <span class="mark">4 marks</span> Explain why a business may choose to absorb overheads into the cost of its products.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Link to pricing and to the idea that a product should carry a fair share of the costs of running the business.</div>
+      <div class="ans"><span class="mk k" data-t="K">Overheads cannot be traced to individual products, but they are real costs of running the business.</span> <span class="mk n" data-t="N">Absorbing them gives a total cost per unit that reflects a fair share of those costs, so selling prices are likely to cover more than just materials and labour.</span> <span class="mk n" data-t="N">This could help the business avoid pricing below full cost and making a loss overall.</span> <span class="mk a" data-t="A">For example, a café that only priced a coffee on ingredients and staff time might not recover rent and utilities.</span></div>
+    </div></details>
+  </div>
+</section>
+<section id="u4" role="tabpanel" hidden>
+  <nav class="sub" aria-label="Unit 4 sections">
+    <button role="tab" data-sp="u4-learn">Learn</button>
+    <button role="tab" data-sp="u4-watch">Watch &amp; explore</button>
+    <button role="tab" data-sp="u4-practise">Practise</button>
+    <button role="tab" data-sp="u4-real">Real world &amp; tips</button>
+    <button role="tab" data-sp="u4-exam">Exam questions</button>
+  </nav>
+
+  <div class="sp" id="u4-learn" role="tabpanel">
+    <div class="card big"><h3>The big idea</h3>
+      <p>The first three units are about numbers. This one is about <b>you</b>: how an accounting technician behaves, communicates and plans. Employers and clients rely on accountants to be honest and competent, so the profession has a code of ethics, and there are legal rules about confidentiality and financial crime. Day to day it also covers time management, teamwork and sustainability.</p></div>
+
+    <h2>1 · The five fundamental ethical principles</h2>
+    <div class="tw"><table class="t">
+      <tr><th>Principle</th><th>In practice</th></tr>
+      <tr><td><b>Integrity</b></td><td>Be straightforward and honest; never be associated with false or misleading information</td></tr>
+      <tr><td><b>Objectivity</b></td><td>Do not let bias, conflict of interest or other people's influence override your judgement</td></tr>
+      <tr><td><b>Professional competence and due care</b></td><td>Keep your knowledge up to date and work to a proper standard; do not take on work you cannot do</td></tr>
+      <tr><td><b>Confidentiality</b></td><td>Keep information private unless there is a right or duty to disclose</td></tr>
+      <tr><td><b>Professional behaviour</b></td><td>Comply with the law and avoid anything that would discredit the profession</td></tr>
+    </table></div>
+    <p>These come from the AAT Code of Professional Ethics, which follows the international accountancy framework. Remember them as <b>I O P C P</b>, or make a sentence.</p>
+
+    <h2>2 · Threats and safeguards</h2>
+    <div class="tw"><table class="t">
+      <tr><th>Threat</th><th>Example</th><th>Possible safeguard</th></tr>
+      <tr><td>Self-interest</td><td>A bonus depends on profit, and you are asked to leave out an expense</td><td>Refuse; escalate to a senior or compliance</td></tr>
+      <tr><td>Self-review</td><td>You review a report that you prepared</td><td>Have someone else review it</td></tr>
+      <tr><td>Advocacy</td><td>You are asked to promote the business's position too strongly</td><td>Stick to facts; avoid overstatement</td></tr>
+      <tr><td>Familiarity</td><td>You accept a friend's figures without checking</td><td>Rotate work; apply the same checks to everyone</td></tr>
+      <tr><td>Intimidation</td><td>A manager pressures you to approve a payment</td><td>Document the request; speak to a more senior person</td></tr>
+    </table></div>
+    <div class="tip"><b class="h">Order to use in an answer</b>Identify the issue → name the principle at risk → name the threat → suggest a safeguard → say who to tell and record it.</div>
+
+    <h2>3 · Confidentiality, data and financial crime</h2>
+    <ul>
+      <li><b>Confidentiality</b> normally means not telling anyone outside the business what you learn at work, and not using it for personal gain. Disclosure may be allowed with permission, or required by law (for example to a regulator or court).</li>
+      <li><b>Data protection</b> law (UK GDPR and the Data Protection Act 2018) requires personal data to be used fairly, kept secure, and not held longer than needed.</li>
+      <li><b>Money laundering:</b> processing the proceeds of crime so they look legitimate. Accountants must report suspicions to their organisation's nominated officer (MLRO) and must not <b>tip off</b> the person concerned.</li>
+      <li><b>Whistleblowing:</b> raising concerns about wrongdoing, with legal protection for workers who do so in the proper way.</li>
+    </ul>
+
+    <h2>4 · Working effectively</h2>
+    <div class="grid2">
+      <div class="card"><h3>Time and priorities</h3><p>Set <b>SMART</b> targets (specific, measurable, achievable, realistic, time-bound). Rank tasks by urgency and importance, plan with a diary or to-do list, allow for interruptions and tell people early if a deadline is at risk.</p></div>
+      <div class="card"><h3>Communication</h3><p>Choose the method to suit the message: email for a record, phone or face to face for something sensitive or quick. Be clear, accurate and polite; check you were understood.</p></div>
+      <div class="card"><h3>Teamwork</h3><p>Know your role, share information, ask for help, give and receive feedback, and deal with disagreements early and professionally.</p></div>
+      <div class="card"><h3>Development</h3><p>Continuing professional development (CPD) keeps skills current: training, reading, shadowing, qualifications. Review your own performance and set personal goals.</p></div>
+    </div>
+
+    <h2>5 · Sustainability and the wider profession</h2>
+    <p>The <b>triple bottom line</b> asks a business to consider <b>people</b>, <b>planet</b> and <b>profit</b>. Accountants can help by measuring and reporting environmental costs, reducing paper and energy use, and supporting fair treatment of staff, supported by the UN Sustainable Development Goals as a common framework. Know the main roles in accounting (bookkeeper, credit controller, payroll, management accountant, financial accountant, auditor) and who relies on accounting information (owners, managers, lenders, HMRC, employees).</p>
+  </div>
+
+  <div class="sp" id="u4-watch" role="tabpanel" hidden>
+    <h2>1 · Working through an ethical problem</h2>
+    <div id="u4st1"></div>
+    <h2>2 · Urgent or important?</h2>
+    <p>Watch tasks drop into the quadrant that sets their priority.</p>
+    <div id="u4st2"></div>
+
+    <h2>Lab · Can you hit the deadline?</h2>
+    <p>You have a working day to finish the monthly tasks. Change the length of the day, how many interruptions you face and whether you batch them into set times.</p>
+    <div class="grid2">
+      <div class="card"><div id="u4sl1"></div><div id="u4sl2"></div><div id="u4sl3"></div>
+        <div class="readout"><div><small>Hours of work</small><strong id="u4r1"></strong></div><div><small>Hours available</small><strong id="u4r2"></strong></div><div><small>Spare / shortfall</small><strong id="u4r3"></strong></div></div>
+        <div class="verdict" id="u4v"></div></div>
+      <div class="card"><svg id="u4lab" viewBox="0 0 420 240" role="img" aria-label="Hours of work against hours available"></svg></div>
+    </div>
+  </div>
+
+  <div class="sp" id="u4-practise" role="tabpanel" hidden>
+    <h2>1 · Which threat?</h2>
+    <div id="u4cl1" class="card"></div>
+    <h2>2 · Match the principle</h2>
+    <div id="u4m1" class="card"></div>
+    <h2>3 · Urgent, important, both or neither?</h2>
+    <div id="u4cl2" class="card"></div>
+    <h2>4 · Put the response to an ethical dilemma in order</h2>
+    <div id="u4o1" class="card"></div>
+    <h2>5 · Multiple choice</h2>
+    <div id="u4qz"></div>
+  </div>
+
+  <div class="sp" id="u4-real" role="tabpanel" hidden>
+    <p class="note">Described in general terms. Look up the current AAT code and legislation for the exact wording.</p>
+    <div class="rw"><h3>Pressure to meet the targets</h3><p>When a business is close to missing a target, there can be pressure to move costs into the next period or recognise income early. A technician who raises the issue and refuses to adjust the figures is protecting their own integrity and the reliability of the accounts.</p><div class="use"><b>Exam use:</b> a standard self-interest or intimidation scenario. Name the principle, the threat and who you would speak to.</div></div>
+    <div class="rw"><h3>Company failures and the accountants' role</h3><p>When large UK companies have collapsed, reviews have often looked at whether accounting judgements were challenged enough and whether auditors and advisers were truly independent. These cases are a common reminder of why objectivity and professional scepticism matter.</p><div class="use"><b>Exam use:</b> a way to show why ethics rules exist: people rely on accounts to make decisions.</div></div>
+    <div class="rw"><h3>A payroll file on the wrong printer</h3><p>Salary details left on a shared printer or sent to the wrong email address can breach confidentiality and data protection law. Sensible controls include secure printing, password protection and checking the recipient.</p><div class="use"><b>Exam use:</b> a practical example of confidentiality and data protection in the office.</div></div>
+    <div class="rw"><h3>Going paperless</h3><p>Moving invoices and filing online cuts paper, printing and storage costs, and makes records quicker to find. It also needs strong data security. Many businesses now report on energy use and waste as part of their sustainability aims.</p><div class="use"><b>Exam use:</b> supports the planet and profit parts of the triple bottom line.</div></div>
+
+    <h2>Top tips</h2>
+    <ul class="tips">
+      <li><b>Use the five principles by name.</b> Marks go to the correct term, not a description.</li>
+      <li><b>Match threat to scenario.</b> Ask who benefits, who is reviewing what, and who is pressuring whom.</li>
+      <li><b>Suggest an action.</b> "Speak to my line manager and record it" beats "it is wrong".</li>
+      <li><b>Hedge in discussion answers:</b> "may", "could", "is likely to".</li>
+      <li><b>Never tip off</b> about a money laundering suspicion. Report it internally.</li>
+      <li><b>Link time management to quality.</b> Rushed work breaches due care.</li>
+      <li><b>Give a reason with every benefit.</b> "Better communication" needs "because...".</li>
+    </ul>
+    <h2>Keyword flashcards</h2>
+    <div id="u4fc"></div>
+  </div>
+
+  <div class="sp" id="u4-exam" role="tabpanel" hidden>
+    <h2>Exam-style tasks</h2>
+    <p>This unit uses short written answers and scenario judgement. Model answers are hedged where there may be more than one reasonable response.</p>
+    <div class="key" aria-label="Colour key"><span class="k"><i></i>Knowledge (K)</span><span class="a"><i></i>Application (A)</span><span class="n"><i></i>Analysis (N)</span><span class="e"><i></i>Evaluation (E)</span></div>
+
+    <details class="eq"><summary>Task 1 <span class="cmd">Identify</span> <span class="mark">5 marks</span> State the five fundamental ethical principles for accounting technicians.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Name each one exactly. One mark each; a brief gloss does no harm.</div>
+      <div class="ans"><span class="mk k" data-t="K">Integrity.</span> <span class="mk k" data-t="K">Objectivity.</span> <span class="mk k" data-t="K">Professional competence and due care.</span> <span class="mk k" data-t="K">Confidentiality.</span> <span class="mk k" data-t="K">Professional behaviour.</span></div>
+    </div></details>
+
+    <details class="eq"><summary>Task 2 <span class="cmd">Analyse</span> <span class="mark">6 marks</span> A manager tells you to delay recording a large supplier invoice until next month so that this month's profit looks higher. Identify the principle and threat involved and recommend what you should do.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Principle, threat, action, record. Keep it tied to the scenario.</div>
+      <div class="ans"><span class="mk k" data-t="K">The main principle at risk is integrity, because delaying the invoice could make the accounts misleading, and possibly objectivity.</span> <span class="mk n" data-t="N">The threat is intimidation, since a manager with authority is applying pressure, and may be self-interest if their bonus depends on profit.</span> <span class="mk a" data-t="A">I should explain to the manager that the invoice belongs in this period and keep a note of the request.</span> <span class="mk a" data-t="A">If the pressure continues I could raise it with a more senior person, the finance director or an ethics helpline.</span> <span class="mk e" data-t="E">Doing nothing might protect my working relationship in the short term, but it would risk the accounts being wrong and could put my professional standing at risk.</span></div>
+      <div class="warn"><b class="h">Common mistake</b>Saying "just do what the manager says". Instructions never override the principles.</div>
+    </div></details>
+
+    <details class="eq"><summary>Task 3 <span class="cmd">Explain</span> <span class="mark">4 marks</span> Explain two ways an accounting team can protect confidential information.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Two methods, each with a reason.</div>
+      <div class="ans"><span class="mk k" data-t="K">Restrict access so that only staff who need the information can see it, for example password-protected payroll files.</span> <span class="mk n" data-t="N">This is likely to reduce the chance of unauthorised disclosure.</span> <span class="mk k" data-t="K">Use secure methods to share and dispose of information, such as encrypted email and shredding paper copies.</span> <span class="mk n" data-t="N">This may prevent personal data being sent to the wrong person or recovered from waste.</span></div>
+    </div></details>
+
+    <details class="eq"><summary>Task 4 <span class="cmd">Prioritise</span> <span class="mark">4 marks</span> You have these tasks today: (a) file a VAT return due tomorrow, (b) reply to a non-urgent query from a colleague, (c) plan next month's reconciliations, (d) reorganise your desktop icons. Rank them and justify the top and bottom choices.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Urgent and important first. Say why the lowest priority can wait or be dropped.</div>
+      <div class="ans"><span class="mk a" data-t="A">Rank: (a), (c), (b), (d).</span> <span class="mk n" data-t="N">The VAT return is both urgent and important, because a late return may bring a penalty.</span> <span class="mk n" data-t="N">Planning reconciliations is important but not urgent; scheduling it now may prevent last-minute rushes.</span> <span class="mk n" data-t="N">Tidying icons adds little value, so it could be left or done in spare time.</span></div>
+    </div></details>
+
+    <details class="eq"><summary>Task 5 <span class="cmd">Discuss</span> <span class="mark">6 marks</span> Discuss how a small accounting business could become more sustainable, and any limits to doing so.</summary><div class="body">
+      <div class="tip"><b class="h">Reminder</b>Give action, benefit, and then a limit or cost. Use "people, planet, profit".</div>
+      <div class="ans"><span class="mk k" data-t="K">Sustainability means meeting present needs without harming the future, and covers people, planet and profit.</span> <span class="mk a" data-t="A">The business could move to paperless invoicing, reduce printing and use energy-efficient equipment.</span> <span class="mk n" data-t="N">This could cut costs and improve its image with clients, while reducing waste.</span> <span class="mk a" data-t="A">It could also support staff through flexible working and training.</span> <span class="mk e" data-t="E">However, new software or equipment may cost money up front, and some clients still expect paper documents, so benefits may take time to appear.</span> <span class="mk e" data-t="E">Overall, small changes that save money as well as resources are likely to be easiest to start with.</span></div>
+    </div></details>
+  </div>
+</section>
+</div>
+<script>
+const $ = (s, e = document) => e.querySelector(s), $$ = (s, e = document) => [...e.querySelectorAll(s)];
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fmtN = (n, d = 2) => (Math.round(n * 10 ** d) / 10 ** d).toString();
+
+/* ---------- tabs ---------- */
+function initTabs() {
+  const list = $(".tablist"), tabs = $$("[role=tab]", list), panels = tabs.map((t) => $("#" + t.dataset.p));
+  const show = (i, focus) => {
+    tabs.forEach((t, k) => { t.setAttribute("aria-selected", k === i); t.tabIndex = k === i ? 0 : -1; panels[k].hidden = k !== i; });
+    if (focus) tabs[i].focus();
+    try { history.replaceState(null, "", "#" + tabs[i].dataset.p); } catch (e) {}
+    window.dispatchEvent(new Event("resize"));
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => { show(i); window.scrollTo(0, 0); });
+    t.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); show((i + 1) % tabs.length, true); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); show((i + tabs.length - 1) % tabs.length, true); }
+    });
+  });
+  const start = tabs.findIndex((t) => "#" + t.dataset.p === location.hash);
+  show(start < 0 ? 0 : start);
+}
+
+/* ---------- svg string helpers ---------- */
+const at = (o) => Object.entries(o || {}).map(([k, v]) => ` ${k}="${v}"`).join("");
+const SV = {
+  line: (x1, y1, x2, y2, c = "ax", o) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="${c}"${at(o)}/>`,
+  text: (x, y, t, c = "lbl", o) => `<text x="${x}" y="${y}" class="${c}"${at(o)}>${t}</text>`,
+  circle: (x, y, r, c = "dot1", o) => `<circle cx="${x}" cy="${y}" r="${r}" class="${c}"${at(o)}/>`,
+  rect: (x, y, w, h, c = "f1", o) => `<rect x="${x}" y="${y}" width="${Math.max(0, w)}" height="${Math.max(0, h)}" class="${c}"${at(o)}/>`,
+  path: (d, c = "c1", o) => `<path d="${d}" class="${c}"${at(o)}/>`,
+  poly: (pts, c = "f1", o) => `<polygon points="${pts.map((p) => p.join(",")).join(" ")}" class="${c}"${at(o)}/>`,
+  arrowHead: (x, y, dir, c = "dot1") => { const s = 7; const p = { r: [[x, y], [x - s * 1.6, y - s], [x - s * 1.6, y + s]], l: [[x, y], [x + s * 1.6, y - s], [x + s * 1.6, y + s]], u: [[x, y], [x - s, y + s * 1.6], [x + s, y + s * 1.6]], d: [[x, y], [x - s, y - s * 1.6], [x + s, y - s * 1.6]] }[dir]; return `<polygon points="${p.map((q) => q.join(",")).join(" ")}" class="${c}"/>`; },
+};
+const ptsPath = (pts) => pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+
+/* ---------- animated stepper ---------- */
+function stepper(el, cfg) {
+  const W = cfg.w || 760, H = cfg.h || 400, steps = cfg.steps;
+  el.innerHTML = `<div class="stp"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(cfg.label || "Animated diagram")}"></svg>
+    <div class="stp-cap" aria-live="polite"></div>
+    <div class="stp-ctl"><button class="b" data-a="back">◀ Back</button><button class="b pri" data-a="play">▶ Play</button><button class="b" data-a="next">Next ▶</button><button class="b" data-a="restart" aria-label="Restart">↻</button><span class="stp-dots"></span></div></div>`;
+  const svg = $("svg", el), cap = $(".stp-cap", el), dots = $(".stp-dots", el), playBtn = $("[data-a=play]", el);
+  let cur = 0, drawn = { ...cfg.base, ...steps[0].s }, raf = 0, timer = 0, playing = false;
+  steps.forEach((_, i) => { const d = document.createElement("button"); d.textContent = i + 1; d.setAttribute("aria-label", "Step " + (i + 1)); d.onclick = () => { stop(); go(i); }; dots.appendChild(d); });
+  const interp = (a, b, t) => { const o = {}; for (const k in b) o[k] = typeof b[k] === "number" && typeof a[k] === "number" ? a[k] + (b[k] - a[k]) * t : t > 0.5 ? b[k] : a[k] !== undefined ? a[k] : b[k]; return o; };
+  const paint = (s) => { drawn = s; svg.innerHTML = cfg.draw(s); };
+  function go(i) {
+    cur = Math.max(0, Math.min(steps.length - 1, i));
+    cap.innerHTML = steps[cur].cap;
+    cfg.onStep && cfg.onStep(cur);
+    $$("button", dots).forEach((d, k) => { d.classList.toggle("on", k === cur); d.classList.toggle("done", k < cur); });
+    const from = drawn, to = { ...cfg.base, ...steps[cur].s }, t0 = performance.now(), dur = reduced ? 0 : cfg.tween || 900;
+    cancelAnimationFrame(raf);
+    const tick = (now) => { const t = dur ? Math.max(0, Math.min(1, (now - t0) / dur)) : 1, e = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; paint(interp(from, to, e)); if (t < 1) raf = requestAnimationFrame(tick); };
+    raf = requestAnimationFrame(tick);
+  }
+  function stop() { playing = false; clearTimeout(timer); playBtn.textContent = "▶ Play"; }
+  function advance() { if (!playing) return; if (cur >= steps.length - 1) return stop(); go(cur + 1); timer = setTimeout(advance, cfg.dwell || 4800); }
+  playBtn.onclick = () => { if (playing) return stop(); if (cur >= steps.length - 1) go(0); playing = true; playBtn.textContent = "❚❚ Pause"; timer = setTimeout(advance, cfg.dwell ? Math.min(cfg.dwell, 3000) : 2500); };
+  $("[data-a=back]", el).onclick = () => { stop(); go(cur - 1); };
+  $("[data-a=next]", el).onclick = () => { stop(); go(cur + 1); };
+  $("[data-a=restart]", el).onclick = () => { stop(); go(0); };
+  paint(drawn); go(0);
+}
+
+/* ---------- slider ---------- */
+function slider(el, o) {
+  const id = o.id;
+  el.innerHTML = `<div class="sl"><label for="${id}">${o.label}<output id="${id}o"></output></label><input type="range" id="${id}" min="${o.min}" max="${o.max}" step="${o.step || 1}" value="${o.value}"></div>`;
+  const i = $("#" + id, el), out = $("#" + id + "o", el);
+  const upd = () => { out.textContent = (o.fmt || ((v) => v))(+i.value); o.onInput && o.onInput(+i.value); };
+  i.addEventListener("input", upd); upd();
+  return { get: () => +i.value, set: (v) => { i.value = v; upd(); } };
+}
+
+/* ---------- classify (also powers match) ---------- */
+function classify(el, o) {
+  const items = o.items.map((x, i) => ({ ...x, id: i })), cap = o.cap || 99;
+  el.classList.add("cls"); if (o.match) el.classList.add("match");
+  el.innerHTML = `${o.prompt ? `<p>${o.prompt}</p>` : ""}<div class="pool" data-b="pool" aria-label="Items to place"></div>
+    <div class="buckets">${o.buckets.map((b, i) => `<div class="bk" data-b="${i}"><h4>${b.label}</h4><div class="slot"></div></div>`).join("")}</div>
+    <div class="row"><button class="b pri" data-a="check">Check</button><button class="b" data-a="reset">Reset</button></div><div class="msg" aria-live="polite"></div>`;
+  const pool = $(".pool", el), msg = $(".msg", el);
+  let sel = null;
+  const chip = (it) => { const c = document.createElement("button"); c.className = "chip"; c.type = "button"; c.draggable = true; c.textContent = it.text; c.dataset.id = it.id;
+    c.addEventListener("dragstart", (e) => { e.dataTransfer.setData("text/plain", it.id); sel = c; });
+    c.addEventListener("click", (e) => { e.stopPropagation(); if (sel === c) { c.classList.remove("sel"); sel = null; } else { sel && sel.classList.remove("sel"); sel = c; c.classList.add("sel"); } });
+    return c; };
+  const place = (c, zone) => {
+    const slot = zone === pool ? pool : $(".slot", zone);
+    if (zone !== pool && slot.children.length >= cap) { const old = slot.firstElementChild; pool.appendChild(old); }
+    slot.appendChild(c); c.classList.remove("sel", "ok", "no"); sel = null; msg.textContent = "";
+  };
+  const fill = () => { pool.innerHTML = ""; $$(".slot", el).forEach((s) => (s.innerHTML = "")); (o.noShuffle ? items : shuffle(items)).forEach((it) => pool.appendChild(chip(it))); msg.textContent = ""; };
+  [pool, ...$$(".bk", el)].forEach((z) => {
+    z.addEventListener("dragover", (e) => { e.preventDefault(); z.classList.add("over"); });
+    z.addEventListener("dragleave", () => z.classList.remove("over"));
+    z.addEventListener("drop", (e) => { e.preventDefault(); z.classList.remove("over"); const c = $(`[data-id="${e.dataTransfer.getData("text/plain")}"]`, el); c && place(c, z); });
+    z.addEventListener("click", () => { if (sel) place(sel, z); });
+  });
+  $("[data-a=check]", el).onclick = () => {
+    let ok = 0;
+    $$(".bk", el).forEach((b) => $$(".chip", b).forEach((c) => { const good = items[+c.dataset.id].b === +b.dataset.b; c.classList.toggle("ok", good); c.classList.toggle("no", !good); if (good) ok++; }));
+    const left = $$(".chip", pool).length;
+    msg.textContent = left ? `${left} still to place. ${ok} correct so far.` : ok === items.length ? "All correct. " + (o.done || "") : `${ok} of ${items.length} correct. Red ones are in the wrong place; move them and check again.`;
+  };
+  $("[data-a=reset]", el).onclick = fill;
+  fill();
+}
+function match(el, o) {
+  classify(el, { match: true, cap: 1, prompt: o.prompt, buckets: o.pairs.map((p) => ({ label: p[0] })), items: o.pairs.map((p, i) => ({ text: p[1], b: i })), done: o.done });
+}
+
+/* ---------- ordering ---------- */
+function order(el, o) {
+  el.classList.add("ord");
+  el.innerHTML = `${o.prompt ? `<p>${o.prompt}</p>` : ""}<ol></ol><div class="row"><button class="b pri" data-a="check">Check order</button><button class="b" data-a="reset">Shuffle again</button></div><div class="msg" aria-live="polite"></div>`;
+  const ol = $("ol", el), msg = $(".msg", el);
+  let dragEl = null;
+  const make = (t, id) => { const li = document.createElement("li"); li.draggable = true; li.dataset.id = id; li.innerHTML = `<span>${t}</span><button class="b" type="button" aria-label="Move up">↑</button><button class="b" type="button" aria-label="Move down">↓</button>`;
+    li.addEventListener("dragstart", () => { dragEl = li; li.classList.add("drag"); });
+    li.addEventListener("dragend", () => { li.classList.remove("drag"); dragEl = null; });
+    li.addEventListener("dragover", (e) => { e.preventDefault(); if (!dragEl || dragEl === li) return; const r = li.getBoundingClientRect(); ol.insertBefore(dragEl, e.clientY < r.top + r.height / 2 ? li : li.nextSibling); });
+    $$("button", li)[0].onclick = () => { li.previousElementSibling && ol.insertBefore(li, li.previousElementSibling); };
+    $$("button", li)[1].onclick = () => { li.nextElementSibling && ol.insertBefore(li.nextElementSibling, li); };
+    return li; };
+  const fill = () => { ol.innerHTML = ""; let s; do { s = shuffle(o.items.map((t, i) => [t, i])); } while (o.items.length > 1 && s.every((x, i) => x[1] === i)); s.forEach(([t, i]) => ol.appendChild(make(t, i))); msg.textContent = ""; };
+  $("[data-a=check]", el).onclick = () => { let ok = 0; $$("li", ol).forEach((li, i) => { const g = +li.dataset.id === i; li.classList.toggle("ok", g); li.classList.toggle("no", !g); if (g) ok++; }); msg.textContent = ok === o.items.length ? "Correct order. " + (o.done || "") : `${ok} of ${o.items.length} in the right place.`; };
+  $("[data-a=reset]", el).onclick = fill; fill();
+}
+
+/* ---------- multiple choice ---------- */
+function quiz(el, o) {
+  el.classList.add("qz");
+  let score = 0, answered = 0;
+  el.innerHTML = o.qs.map((q, i) => `<div class="q" data-i="${i}"><p class="qt">${i + 1}. ${q.q}</p>${q.opts.map((t, k) => `<button class="opt" data-k="${k}">${String.fromCharCode(65 + k)}. ${t}</button>`).join("")}<div class="why"><b>${"Answer: " + String.fromCharCode(65 + q.a)}.</b> ${q.why}</div></div>`).join("") + `<div class="score" aria-live="polite"></div><button class="b" data-a="again">Try again</button>`;
+  const sc = $(".score", el);
+  $$(".q", el).forEach((box) => { const q = o.qs[+box.dataset.i];
+    $$(".opt", box).forEach((b) => b.addEventListener("click", () => { if (box.classList.contains("done")) return; box.classList.add("done"); answered++; const k = +b.dataset.k; if (k === q.a) score++; b.classList.add(k === q.a ? "ok" : "no"); $$(".opt", box)[q.a].classList.add("ok"); sc.textContent = `Score: ${score} / ${answered} answered (of ${o.qs.length})`; })); });
+  $("[data-a=again]", el).onclick = () => { score = answered = 0; sc.textContent = ""; $$(".q", el).forEach((b) => { b.classList.remove("done"); $$(".opt", b).forEach((x) => x.classList.remove("ok", "no")); }); };
+}
+
+/* ---------- calculations ---------- */
+function calc(el, o) {
+  el.classList.add("calc");
+  el.innerHTML = o.qs.map((q, i) => `<div class="q" data-i="${i}"><p>${i + 1}. ${q.q}</p>
+    <div class="row"><input type="text" inputmode="${q.t ? "text" : "decimal"}" autocapitalize="off" autocomplete="off" aria-label="Answer ${i + 1}" placeholder="${q.ph || "answer"}">${q.unit ? `<span>${q.unit}</span>` : ""}<button class="b pri" data-a="c">Check</button><button class="b" data-a="h">Hint</button><button class="b" data-a="s">Show working</button><span class="fb" aria-live="polite"></span></div>
+    <div class="sol" data-s="h">${q.hint || "Write the formula first, then substitute."}</div><div class="sol" data-s="s">${q.sol}</div></div>`).join("");
+  $$(".q", el).forEach((box) => { const q = o.qs[+box.dataset.i], inp = $("input", box), fb = $(".fb", box);
+    const check = () => { const v = parseFloat(inp.value.replace(/[,$%\s−]/g, (m) => (m === "−" ? "-" : ""))); const good = q.t ? q.t.includes(inp.value.replace(/\s/g, "").toUpperCase()) : !isNaN(v) && Math.abs(v - q.a) <= (q.tol ?? 0.01); fb.textContent = good ? "✓ Correct" : "✗ Not quite"; fb.className = "fb " + (good ? "ok" : "no"); };
+    $("[data-a=c]", box).onclick = check; inp.addEventListener("keydown", (e) => e.key === "Enter" && check());
+    $("[data-a=h]", box).onclick = () => $("[data-s=h]", box).classList.toggle("show");
+    $("[data-a=s]", box).onclick = () => $("[data-s=s]", box).classList.toggle("show"); });
+}
+
+/* ---------- flashcards ---------- */
+function cards(el, o) {
+  let deck = o.cards.map((c) => c), i = 0, back = false, known = new Set();
+  el.classList.add("fc");
+  el.innerHTML = `<div class="face" tabindex="0" role="button" aria-label="Flip card"></div><div class="row" style="margin-top:10px"><button class="b" data-a="p">◀</button><button class="b" data-a="f">Flip</button><button class="b" data-a="n">▶</button><button class="b" data-a="s">Shuffle</button><button class="b pri" data-a="k">I know this</button><span class="note" data-c></span></div>`;
+  const face = $(".face", el), cnt = $("[data-c]", el);
+  const paint = () => { const c = deck[i]; face.className = "face" + (back ? " back" : ""); face.innerHTML = `<div><small>${back ? "Definition" : "Term"}</small>${back ? c[1] : "<b>" + c[0] + "</b>"}</div>`; cnt.textContent = `${i + 1} / ${deck.length} · known ${known.size}`; };
+  const flip = () => { back = !back; paint(); };
+  face.onclick = flip; face.onkeydown = (e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), flip());
+  $("[data-a=f]", el).onclick = flip;
+  $("[data-a=n]", el).onclick = () => { i = (i + 1) % deck.length; back = false; paint(); };
+  $("[data-a=p]", el).onclick = () => { i = (i + deck.length - 1) % deck.length; back = false; paint(); };
+  $("[data-a=s]", el).onclick = () => { deck = shuffle(deck); i = 0; back = false; paint(); };
+  $("[data-a=k]", el).onclick = () => { known.add(deck[i][0]); i = (i + 1) % deck.length; back = false; paint(); };
+  paint();
+}
+
+
+/* ---------- array cells (svg) ---------- */
+/* o: x0,y,w,h,gap, cls {i:'cur|ok|no|warn|sorted'}, dim (array of indexes), ptr {i:'L'|'L,M'}, idx (show indexes), lift {i:dy} */
+function cells(arr, o = {}) {
+  const w = o.w || 56, h = o.h || 48, gap = o.gap ?? 6, y = o.y || 90, n = arr.length, tot = n * w + (n - 1) * gap, x0 = o.x0 ?? 0;
+  const dim = new Set(o.dim || []), cls = o.cls || {}, ptr = o.ptr || {}, lift = o.lift || {};
+  let out = "";
+  arr.forEach((v, i) => {
+    const x = x0 + i * (w + gap), yy = y - (lift[i] || 0), c = cls[i] ? " cell-" + cls[i] : "";
+    out += `<g class="${dim.has(i) ? "cell-dimg" : ""}">` + SV.rect(x, yy, w, h, "cell" + c, { rx: 8 }) + SV.text(x + w / 2, yy + h / 2 + 7, v === null ? "" : v, "lbl bd", { "text-anchor": "middle", style: "font-size:20px;font-family:var(--mono)" });
+    if (o.idx !== false) out += SV.text(x + w / 2, y + h + 17, i, "sm", { "text-anchor": "middle" });
+    out += "</g>";
+    if (ptr[i]) {
+      out += SV.poly([[x + w / 2, y + h + 24], [x + w / 2 - 6, y + h + 34], [x + w / 2 + 6, y + h + 34]], "t1");
+      out += SV.text(x + w / 2, y + h + 51, ptr[i], "lbl bd t1", { "text-anchor": "middle" });
+    }
+  });
+  return out;
+}
+
+/* ---------- code panel: Pseudocode / Python tabs with a highlighted line ---------- */
+function codePanel(el, o) {
+  const langs = [["ps", "Pseudocode", o.pseudo], ["py", "Python", o.py]];
+  el.classList.add("code");
+  el.innerHTML = `<div class="ctabs" role="tablist" aria-label="Code language">${langs.map((l, i) => `<button role="tab" type="button" aria-selected="${i === 0}" data-l="${l[0]}">${l[1]}</button>`).join("")}</div>` +
+    langs.map((l, i) => `<pre class="cp" data-l="${l[0]}"${i ? " hidden" : ""}>${l[2].map((t, k) => `<span class="ln" data-k="${k}">${esc(t) || " "}</span>`).join("")}</pre>`).join("");
+  const tabs = $$("[role=tab]", el), pres = $$("pre", el);
+  tabs.forEach((t, i) => t.addEventListener("click", () => { tabs.forEach((x, k) => { x.setAttribute("aria-selected", k === i); pres[k].hidden = k !== i; }); }));
+  return { hl(ps, py) { [[ps, 0], [py, 1]].forEach(([ks, k]) => { $$(".ln", pres[k]).forEach((l) => l.classList.remove("on")); [].concat(ks ?? []).forEach((n) => { const l = $(`.ln[data-k="${n}"]`, pres[k]); l && l.classList.add("on"); }); }); } };
+}
+
+/* ---------- algorithm stepper: frames {cap, ps, py, svg} + code panel ---------- */
+function algo(el, o) {
+  el.classList.add("algo");
+  el.innerHTML = `<div class="aS"></div><div class="aC"></div>`;
+  const cp = codePanel($(".aC", el), o), fr = o.frames;
+  stepper($(".aS", el), { w: o.w || 640, h: o.h || 250, label: o.label, base: { i: 0 }, tween: 1, dwell: o.dwell || 2200, draw: (s) => fr[Math.max(0, Math.min(fr.length - 1, Math.round(s.i)))].svg, onStep: (c) => cp.hl(fr[c].ps, fr[c].py), steps: fr.map((f, i) => ({ cap: f.cap, s: { i } })) });
+}
+
+/* ---------- graphs: svg drawing, adjacency structures ---------- */
+function adjOf(g) {
+  const m = new Map(g.nodes.map((n) => [n.id, []]));
+  g.edges.forEach(([a, b, w]) => { m.get(a).push([b, w]); if (!g.directed) m.get(b).push([a, w]); });
+  m.forEach((l) => l.sort((x, y) => (x[0] < y[0] ? -1 : 1)));
+  return m;
+}
+/* o: cls {id:'cur|ok|seen|no'}, sub {id:'text under node'}, on Set of "a-b" keys (both orders for undirected), r radius */
+function graphSvg(g, o = {}) {
+  const r = o.r || 20, P = Object.fromEntries(g.nodes.map((n) => [n.id, n])), cls = o.cls || {}, on = o.on || new Set(), sub = o.sub || {};
+  let s = "";
+  g.edges.forEach(([a, b, w]) => {
+    const A = P[a], B = P[b], dx = B.x - A.x, dy = B.y - A.y, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L, hot = on.has(a + "-" + b) || (!g.directed && on.has(b + "-" + a));
+    const rev = g.directed && g.edges.some(([x, y]) => x === b && y === a), ox = rev ? -uy * 7 : 0, oy = rev ? ux * 7 : 0;
+    const x1 = A.x + ux * (g.directed ? r : 0) + ox, y1 = A.y + uy * (g.directed ? r : 0) + oy, x2 = B.x - ux * (g.directed ? r + 2 : 0) + ox, y2 = B.y - uy * (g.directed ? r + 2 : 0) + oy;
+    s += SV.line(x1, y1, x2, y2, hot ? "edge-on" : "edge");
+    if (g.directed) { const hx = x2, hy = y2, px = -uy, py = ux, k = 11; s += `<polygon points="${hx},${hy} ${hx - ux * k + px * 6},${hy - uy * k + py * 6} ${hx - ux * k - px * 6},${hy - uy * k - py * 6}" class="${hot ? "t1" : "arr"}"/>`; }
+    if (g.weighted) { const mx = (A.x + B.x) / 2 - uy * (rev ? 18 : 11), my = (A.y + B.y) / 2 + ux * (rev ? 18 : 11); s += SV.text(mx, my + 5, w, "lbl bd" + (hot ? " t1" : ""), { "text-anchor": "middle", style: "font-size:14px;paint-order:stroke;stroke:var(--surface);stroke-width:4px" }); }
+  });
+  g.nodes.forEach((n) => {
+    s += SV.circle(n.x, n.y, r, "nd" + (cls[n.id] ? " nd-" + cls[n.id] : "")) + SV.text(n.x, n.y + 6, n.id, "lbl bd", { "text-anchor": "middle", style: "font-size:16px" });
+    if (sub[n.id] !== undefined) s += SV.text(n.x, n.y + r + 16, sub[n.id], "sm bd t4", { "text-anchor": "middle", style: "font-size:13px;font-family:var(--mono)" });
+  });
+  return s;
+}
+function matrixHtml(g, o = {}) {
+  const ids = g.nodes.map((n) => n.id), cell = (a, b) => { const e = g.edges.find(([x, y]) => (x === a && y === b) || (!g.directed && x === b && y === a)); return e ? (g.weighted ? e[2] : 1) : g.weighted ? "–" : 0; };
+  return `<div class="tw"><table class="t mx"><tr><th></th>${ids.map((i) => `<th>${i}</th>`).join("")}</tr>${ids.map((a) => `<tr><th>${a}</th>${ids.map((b) => { const v = cell(a, b), hl = o.hl && o.hl[0] === a && o.hl[1] === b; return `<td class="${v === 0 || v === "–" ? "z" : "on"}${hl ? " hl" : ""}">${v}</td>`; }).join("")}</tr>`).join("")}</table></div>`;
+}
+function listHtml(g) {
+  const A = adjOf(g);
+  return `<div class="tw"><table class="t mx"><tr><th>Vertex</th><th>${g.directed ? "Points to" : "Adjacent to"}</th></tr>${g.nodes.map((n) => `<tr><th>${n.id}</th><td class="ls">${A.get(n.id).map(([b, w]) => (g.weighted ? `${b} (${w})` : b)).join(", ") || "–"}</td></tr>`).join("")}</table></div>`;
+}
+
+window.Lib = { adjOf, graphSvg, matrixHtml, listHtml, cells, codePanel, algo,  initTabs, SV, ptsPath, stepper, slider, classify, match, order, quiz, calc, cards, fmtN, esc };
+
+/* ---------- shared helpers ---------- */
+const op = (v) => Math.max(0, Math.min(1, v));
+const vis = (v) => ({ style: "opacity:" + op(v).toFixed(3) });
+const mid = { "text-anchor": "middle" };
+const money = (n, d = 0) => "£" + Number(n).toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
+
+$$(".sub").forEach((nav) => {
+  const tabs = $$("[role=tab]", nav), panels = tabs.map((t) => $("#" + t.dataset.sp));
+  const show = (i, focus) => {
+    tabs.forEach((t, k) => { t.setAttribute("aria-selected", k === i); t.tabIndex = k === i ? 0 : -1; panels[k].hidden = k !== i; });
+    if (focus) tabs[i].focus();
+    window.dispatchEvent(new Event("resize"));
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => show(i));
+    t.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); show((i + 1) % tabs.length, true); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); show((i + tabs.length - 1) % tabs.length, true); }
+    });
+  });
+  show(0);
+});
+
+/* horizontal flow of boxes that appear one by one: items [{t:[lines], d:[lines]}], n = how many shown */
+function flow(items, n, W = 760) {
+  const k = items.length, gap = 24, bw = (W - 20 - gap * (k - 1)) / k, y = 60, h = 90;
+  let s = "";
+  items.forEach((it, i) => {
+    const x = 10 + i * (bw + gap), v = op(n - i), on = Math.round(n) - 1 === i;
+    s += `<g style="opacity:${v.toFixed(3)}">` + SV.rect(x, y, bw, h, on ? "bxh" : "bx", { rx: 10 });
+    it.t.forEach((l, j) => (s += SV.text(x + bw / 2, y + 38 + j * 20, l, "lbl bd", mid)));
+    it.d.forEach((l, j) => (s += SV.text(x + bw / 2, y + h + 24 + j * 16, l, "sm", mid)));
+    if (i > 0) s += SV.line(x - gap + 2, y + h / 2, x - 6, y + h / 2, "ax") + SV.arrowHead(x - 2, y + h / 2, "r", "arr");
+    s += "</g>";
+  });
+  return s;
+}
+
+/* T-account: dr and cr are arrays of [label, visibility] */
+function tAcc(x, y, w, title, dr, cr, h = 150) {
+  let s = SV.text(x + w / 2, y, title, "lbl bd", mid) + SV.line(x, y + 10, x + w, y + 10, "ax") + SV.line(x + w / 2, y + 10, x + w / 2, y + 10 + h, "ax");
+  s += SV.text(x + 6, y + 28, "Debit", "sm") + SV.text(x + w - 6, y + 28, "Credit", "sm", { "text-anchor": "end" });
+  dr.forEach((e, i) => (s += SV.text(x + 8, y + 54 + i * 24, e[0], "lbl", vis(e[1]))));
+  cr.forEach((e, i) => (s += SV.text(x + w / 2 + 8, y + 54 + i * 24, e[0], "lbl", vis(e[1]))));
+  return s;
+}
+
+/* rows of a working: items [label, amount, strong?], v = how many rows are shown */
+function rows(x, y0, w, title, items, v, cls = "bx") {
+  let s = SV.text(x, y0, title, "lbl bd", { "text-anchor": "start" });
+  items.forEach((it, i) => {
+    const y = y0 + 20 + i * 38, a = op(v - i);
+    s += `<g style="opacity:${a.toFixed(3)}">` + SV.rect(x, y, w, 32, it[2] ? "bxg" : cls, { rx: 6 }) + SV.text(x + 10, y + 21, it[0], it[2] ? "lbl bd" : "lbl", { "text-anchor": "start" }) + SV.text(x + w - 10, y + 21, it[1], it[2] ? "lbl bd" : "lbl", { "text-anchor": "end" }) + "</g>";
+  });
+  return s;
+}
+
+/* ================= UNIT 1 ================= */
+const u1items = [
+  { t: ["Purchase", "order"], d: ["Customer asks", "for goods"] },
+  { t: ["Delivery", "note"], d: ["Goods arrive", "and are checked"] },
+  { t: ["Invoice", "issued"], d: ["Net, VAT", "and total"] },
+  { t: ["Day", "book"], d: ["Listed in", "date order"] },
+  { t: ["Ledger", "accounts"], d: ["Double-entry", "posted"] },
+  { t: ["Trial", "balance"], d: ["Do debits", "equal credits?"] },
+];
+Lib.stepper($("#u1st1"), {
+  w: 760, h: 230, label: "Flow from source document to trial balance", base: { n: 0 },
+  draw: (s) => flow(u1items, s.n) + SV.text(380, 28, "From document to trial balance", "lbl bd", mid),
+  steps: [
+    { cap: "A customer sends a <b>purchase order</b>: the request, the price agreed and the quantity.", s: { n: 1 } },
+    { cap: "The goods arrive with a <b>delivery note</b>. Check it against the order before anything else is recorded.", s: { n: 2 } },
+    { cap: "The seller raises an <b>invoice</b>: net amount, VAT and total, with payment terms. This is the <b>source document</b> for the sale.", s: { n: 3 } },
+    { cap: "The invoice is listed in the <b>sales day book</b>, a book of prime entry. Totals of net, VAT and gross are added up.", s: { n: 4 } },
+    { cap: "The totals are posted to the <b>ledgers</b> using double-entry, and each customer account is updated in the sales ledger.", s: { n: 5 } },
+    { cap: "The ledger balances go on a <b>trial balance</b>. If debits equal credits, the books balance (but errors may still be hiding).", s: { n: 6 } },
+  ],
+});
+
+Lib.stepper($("#u1st2"), {
+  w: 760, h: 300, label: "T-accounts for a credit sale and the customer's payment", base: { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0 },
+  draw: (s) =>
+    tAcc(10, 40, 170, "Sales ledger control", [["SDB 1,200", s.a]], [["Bank 1,200", s.d]]) +
+    tAcc(200, 40, 170, "Sales", [], [["SLCA 1,000", s.b]]) +
+    tAcc(390, 40, 170, "VAT control", [], [["SLCA 200", s.c]]) +
+    tAcc(580, 40, 170, "Bank", [["SLCA 1,200", s.d]], []) +
+    SV.text(380, 260, "Sale: debits £1,200 = credits £1,000 + £200", "lbl bd t3", { ...mid, ...vis(s.e) }) +
+    SV.text(380, 284, "Receipt: debit Bank £1,200 = credit Sales ledger control £1,200", "lbl bd t1", { ...mid, ...vis(s.f) }),
+  steps: [
+    { cap: "A credit sale: <b>£1,000 net plus £200 VAT = £1,200</b>. Four accounts are about to be affected.", s: {} },
+    { cap: "<b>Debit Sales ledger control £1,200.</b> Customers owe us more, so this asset increases. The entry comes from the sales day book total.", s: { a: 1 } },
+    { cap: "<b>Credit Sales £1,000.</b> Income increases, so it is a credit. The net amount only.", s: { a: 1, b: 1 } },
+    { cap: "<b>Credit VAT control £200.</b> We owe HMRC the VAT we collected, so this liability increases.", s: { a: 1, b: 1, c: 1 } },
+    { cap: "Check: debit £1,200 equals credits £1,000 + £200. The sale balances.", s: { a: 1, b: 1, c: 1, e: 1 } },
+    { cap: "The customer pays. <b>Debit Bank £1,200</b> (asset up) and <b>credit Sales ledger control £1,200</b> (the customer owes nothing now).", s: { a: 1, b: 1, c: 1, e: 1, d: 1, f: 1 } },
+  ],
+});
+
+const u1Vat = [0, 5, 20];
+const u1Lab = () => {
+  if (!$("#u1a1") || !$("#u1a2") || !$("#u1a3")) return;
+  const L = +$("#u1a1").value, d = +$("#u1a2").value, r = u1Vat[+$("#u1a3").value];
+  const net = L * (1 - d / 100), vat = net * r / 100, gross = net + vat;
+  $("#u1r1").textContent = money(net, 2); $("#u1r2").textContent = money(vat, 2); $("#u1r3").textContent = money(gross, 2);
+  $("#u1v").innerHTML = `Dr Sales ledger control ${money(gross, 2)} · Cr Sales ${money(net, 2)} · Cr VAT control ${money(vat, 2)}`;
+  const sc = 340 / (L * 1.2), x0 = 40;
+  let s = SV.text(x0, 36, "List price", "sm") + SV.rect(x0, 42, L * sc, 34, "f1");
+  s += SV.text(x0 + L * sc / 2, 64, money(L, 0), "lbl bd", mid);
+  s += SV.text(x0, 112, "After trade discount (net)", "sm") + SV.rect(x0, 118, net * sc, 34, "f3");
+  s += SV.text(x0 + net * sc / 2, 140, money(net, 0), "lbl bd", mid);
+  s += SV.text(x0, 188, "Invoice: net + VAT", "sm") + SV.rect(x0, 194, net * sc, 34, "f3") + SV.rect(x0 + net * sc, 194, vat * sc, 34, "f4");
+  s += SV.text(x0 + gross * sc / 2, 216, money(gross, 0), "lbl bd", mid);
+  s += SV.text(x0 + net * sc + vat * sc / 2, 244, r ? "VAT " + r + "%" : "VAT 0%", "sm", mid);
+  $("#u1lab").innerHTML = s;
+};
+Lib.slider($("#u1sl1"), { id: "u1a1", label: "List price", min: 100, max: 5000, step: 50, value: 1200, fmt: (v) => "£" + v, onInput: u1Lab });
+Lib.slider($("#u1sl2"), { id: "u1a2", label: "Trade discount", min: 0, max: 40, step: 5, value: 10, fmt: (v) => v + "%", onInput: u1Lab });
+Lib.slider($("#u1sl3"), { id: "u1a3", label: "VAT rate", min: 0, max: 2, step: 1, value: 2, fmt: (v) => u1Vat[v] + "%", onInput: u1Lab });
+u1Lab();
+
+Lib.classify($("#u1cl1"), {
+  prompt: "Where is each transaction first recorded?",
+  buckets: [{ label: "Sales day book" }, { label: "Purchases day book" }, { label: "Returns day books" }, { label: "Cash book" }, { label: "Journal" }],
+  items: [
+    { text: "Invoice issued to a credit customer", b: 0 }, { text: "Credit sale of goods on account", b: 0 },
+    { text: "Invoice from a supplier for goods", b: 1 }, { text: "Purchase of stock on credit", b: 1 },
+    { text: "Credit note sent to a customer", b: 2 }, { text: "Credit note received from a supplier", b: 2 },
+    { text: "Cheque received from a customer", b: 3 }, { text: "Payment to a supplier by BACS", b: 3 },
+    { text: "Correction of a posting error", b: 4 }, { text: "Opening entries for a new business", b: 4 },
+  ],
+  done: "The day books list credit transactions; the cash book handles bank movements; the journal handles everything unusual.",
+});
+Lib.classify($("#u1cl2"), {
+  prompt: "Is the entry to this account a debit or a credit?",
+  buckets: [{ label: "Debit" }, { label: "Credit" }],
+  items: [
+    { text: "Bank balance increases", b: 0 }, { text: "Sales (income) increase", b: 1 }, { text: "Rent expense increases", b: 0 },
+    { text: "Amount owed to a supplier increases", b: 1 }, { text: "Owner's capital increases", b: 1 }, { text: "Drawings increase", b: 0 },
+    { text: "Equipment is bought", b: 0 }, { text: "Customers owe us more", b: 0 }, { text: "VAT owed to HMRC increases", b: 1 }, { text: "A bank loan increases", b: 1 },
+  ],
+  done: "Remember DEAD CLIC.",
+});
+Lib.match($("#u1m1"), {
+  prompt: "Drag each description onto the document it fits.",
+  pairs: [
+    ["Purchase order", "The buyer requests goods at an agreed price"],
+    ["Delivery note", "Lists what was actually delivered"],
+    ["Invoice", "Asks for payment, showing net, VAT and total"],
+    ["Credit note", "Reduces the amount owed"],
+    ["Statement", "Summarises invoices, credit notes and payments over a period"],
+    ["Remittance advice", "Tells the seller which invoices a payment covers"],
+  ],
+  done: "Each document has one job.",
+});
+Lib.order($("#u1o1"), {
+  prompt: "Put the life of a credit sale in order.",
+  items: [
+    "Customer sends a purchase order",
+    "Goods are dispatched with a delivery note",
+    "Invoice is raised and checked: net, VAT and total",
+    "Invoice is entered in the sales day book",
+    "Totals are posted to sales ledger control, sales and VAT",
+    "Customer account is updated in the sales ledger",
+    "Customer pays and the receipt is recorded in the cash book",
+    "Trial balance checks debits equal credits",
+  ],
+  done: "That is the full cycle.",
+});
+Lib.calc($("#u1c1"), { qs: [
+  { q: "An invoice has a net amount of £450. Calculate the VAT at 20% (£).", a: 90, sol: "£450 × 20% = <b>£90</b>." },
+  { q: "An invoice total including VAT at 20% is £1,260. What is the net amount (£)?", a: 1050, hint: "Divide by 1.2.", sol: "£1,260 ÷ 1.20 = <b>£1,050</b>." },
+  { q: "List price £800, trade discount 15%, VAT 20%. What is the invoice total (£)?", a: 816, hint: "Discount first, then VAT.", sol: "Discount £120 → net £680. VAT = £136. Total = <b>£816</b>." },
+  { q: "The sales day book totals show net £2,300 and VAT £460. How much is debited to sales ledger control (£)?", a: 2760, sol: "Gross = £2,300 + £460 = <b>£2,760</b>." },
+  { q: "Trial balance debits are £48,350. Credits listed so far are £31,200 and £9,400. What is the missing credit balance (£)?", a: 7750, sol: "£48,350 − £31,200 − £9,400 = <b>£7,750</b>." },
+  { q: "A £2,000 net invoice carries a 4% settlement discount, with VAT at 20%. How much does the customer pay if they take the discount (£)?", a: 2304, hint: "VAT is on the discounted net.", sol: "Net £2,000 × 96% = £1,920. VAT = £384. Pays <b>£2,304</b>." },
+] });
+Lib.quiz($("#u1qz"), { qs: [
+  { q: "Which document asks a customer for payment?", opts: ["Delivery note", "Purchase order", "Invoice", "Remittance advice"], a: 2, why: "An invoice states what is owed. The remittance advice is the customer's reply." },
+  { q: "A trade discount is:", opts: ["Recorded in the ledgers", "Taken off before VAT and not recorded in the ledgers", "Given for early payment", "Added to the VAT"], a: 1, why: "It reduces the list price on the invoice. Only the net amount is posted." },
+  { q: "Output VAT is:", opts: ["VAT on purchases", "VAT charged on sales", "A business expense", "An asset"], a: 1, why: "Output VAT is collected from customers and owed to HMRC." },
+  { q: "Which account is debited when goods are sold on credit?", opts: ["Sales", "VAT control", "Sales ledger control", "Bank"], a: 2, why: "Customers now owe the business money, so the control account (an asset) is debited." },
+  { q: "An imprest petty cash system means:", opts: ["The float is topped up to a fixed amount", "Staff keep their own receipts", "Cash is banked daily", "No vouchers are needed"], a: 0, why: "The top-up equals what was spent, so the float returns to its starting level." },
+  { q: "A trial balance that balances proves:", opts: ["All entries are correct", "Debits equal credits", "No errors exist", "VAT is accurate"], a: 1, why: "It shows totals agree, but several error types leave it balanced." },
+] });
+Lib.cards($("#u1fc"), { cards: [
+  ["Source document", "Evidence of a transaction, such as an invoice or credit note."],
+  ["Book of prime entry", "The first place transactions are recorded, before posting to the ledgers."],
+  ["Double-entry", "Every transaction has a debit and a credit of equal value."],
+  ["Ledger", "A collection of accounts: sales, purchases or general."],
+  ["Trial balance", "A list of ledger balances used to check debits equal credits."],
+  ["Net, VAT, gross", "Amount before VAT, the tax, and the total including VAT."],
+  ["Trade discount", "A reduction from list price, taken off before VAT."],
+  ["Settlement discount", "A reduction for paying early; VAT is worked out after it."],
+  ["Imprest system", "A petty cash float that is topped up to a fixed level."],
+  ["Output / input VAT", "VAT charged on sales / VAT paid on purchases."],
+] });
+
+/* ================= UNIT 2 ================= */
+const cbRows = [["Balance per cash book", "£3,420"], ["Bank charges not recorded", "−£35"], ["Direct debit not recorded", "−£120"], ["BACS receipt not recorded", "+£500"], ["Updated cash book balance", "£3,765", 1]];
+const bsRows = [["Balance per bank statement", "£4,615"], ["Unpresented cheques", "−£1,100"], ["Outstanding lodgement", "+£250"], ["Reconciled balance", "£3,765", 1]];
+Lib.stepper($("#u2st1"), {
+  w: 760, h: 270, label: "Bank reconciliation in two steps", base: { l: 0, r: 0, ok: 0 },
+  draw: (s) =>
+    rows(10, 28, 350, "1. Update the cash book", cbRows, s.l) + rows(400, 28, 350, "2. Reconcile to the bank statement", bsRows, s.r) +
+    SV.text(380, 254, "Both reach £3,765: reconciled", "lbl bd t3", { ...mid, ...vis(s.ok) }),
+  steps: [
+    { cap: "Start with the <b>cash book</b> balance of £3,420. Compare it with the bank statement, ticking items that appear in both.", s: { l: 1 } },
+    { cap: "<b>Bank charges (£35)</b> and a <b>direct debit (£120)</b> are on the statement but not in the cash book. They are real, so the cash book is updated.", s: { l: 3 } },
+    { cap: "A <b>BACS receipt (£500)</b> has also arrived. Add it, and the <b>updated cash book balance</b> is £3,765.", s: { l: 5 } },
+    { cap: "Now the bank's side. The <b>statement</b> shows £4,615.", s: { l: 5, r: 1 } },
+    { cap: "<b>Timing differences</b>: cheques written but not yet cleared (−£1,100) and money paid in not yet showing (+£250). These need no cash book entry.", s: { l: 5, r: 3 } },
+    { cap: "£4,615 − £1,100 + £250 = <b>£3,765</b>, the same as the updated cash book.", s: { l: 5, r: 4 } },
+    { cap: "The two agree, so the bank is <b>reconciled</b>. If they did not, you would look for an unexplained item or an error.", s: { l: 5, r: 4, ok: 1 } },
+  ],
+});
+
+Lib.stepper($("#u2st2"), {
+  w: 760, h: 300, label: "Trial balance difference, suspense account and journal correction", base: { tb: 0, sus: 0, rent: 0, fix: 0 },
+  draw: (s) => {
+    let o = SV.text(120, 56, "Trial balance", "lbl bd", mid) + SV.rect(10, 68, 220, 160, "bx", { rx: 10, ...vis(s.tb) });
+    o += SV.text(24, 106, "Debits", "lbl", { "text-anchor": "start", ...vis(s.tb) }) + SV.text(216, 106, "52,310", "lbl", { "text-anchor": "end", ...vis(s.tb) });
+    o += SV.text(24, 140, "Credits", "lbl", { "text-anchor": "start", ...vis(s.tb) }) + SV.text(216, 140, "52,400", "lbl", { "text-anchor": "end", ...vis(s.tb) });
+    o += SV.text(24, 180, "Difference", "lbl bd t2", { "text-anchor": "start", ...vis(s.tb) }) + SV.text(216, 180, "90", "lbl bd t2", { "text-anchor": "end", ...vis(s.tb) });
+    o += SV.text(120, 214, s.fix > 0.5 ? "Now balanced and suspense = nil" : s.sus > 0.5 ? "Balanced with suspense" : "", "sm", { ...mid, ...vis(Math.max(s.sus, s.fix)) });
+    o += tAcc(250, 50, 250, "Suspense", [["TB difference 90", s.sus]], [["Journal 90", s.fix]], 130);
+    o += tAcc(520, 50, 230, "Rent", [["Bank 450", s.rent], ["Journal 90", s.fix]], [], 130);
+    o += SV.text(635, 214, "Rent should be £540", "sm", { ...mid, ...vis(s.rent) });
+    o += SV.text(380, 270, "Journal: Debit Rent £90 · Credit Suspense £90", "lbl bd t1", { ...mid, ...vis(s.fix) });
+    return o;
+  },
+  steps: [
+    { cap: "The trial balance does not balance: debits are <b>£90 short</b> of credits.", s: { tb: 1 } },
+    { cap: "A <b>suspense account</b> holds the difference temporarily. Debits are short, so suspense gets a <b>£90 debit</b> and the trial balance agrees.", s: { tb: 1, sus: 1 } },
+    { cap: "Investigation finds a rent payment of £540 was posted to the rent account as <b>£450</b> (a transposition on one side).", s: { tb: 1, sus: 1, rent: 1 } },
+    { cap: "The <b>journal</b> puts it right: <b>Debit Rent £90, Credit Suspense £90</b>. Rent now shows £540 and suspense is cleared to nil.", s: { tb: 1, sus: 1, rent: 1, fix: 1 } },
+  ],
+});
+
+const u2Lab = () => {
+  if (!$("#u2a1") || !$("#u2a2") || !$("#u2a3") || !$("#u2a4")) return;
+  const unp = +$("#u2a1").value, lod = +$("#u2a2").value, chg = +$("#u2a3").value, err = +$("#u2a4").value;
+  const rec = 5000 - unp + lod, upd = rec + err, before = upd + chg;
+  $("#u2r1").textContent = money(rec); $("#u2r2").textContent = money(before); $("#u2r3").textContent = money(err);
+  $("#u2v").textContent = err === 0 ? "No unexplained difference: the cash book, once updated for the charges, agrees with the bank statement." : `The updated cash book is ${money(err)} different from the reconciled balance. Look for a transposition, a missed entry or a duplicate and journal it.`;
+  const sc = 190 / 7200, base = 240, bars = [["Statement", 5000, "f1"], ["− Unpresented", unp, "f2"], ["+ Lodgements", lod, "f3"], ["Reconciled", rec, "f1"], ["Cash book", upd, err ? "f4" : "f1"]];
+  let s = SV.line(20, base, 410, base, "ax");
+  bars.forEach((b, i) => { const x = 28 + i * 78, h = b[1] * sc; s += SV.rect(x, base - h, 60, h, b[2]) + SV.text(x + 30, base - h - 6, money(b[1]), "sm", mid) + SV.text(x + 30, base + 16, b[0], "sm", mid); });
+  $("#u2lab").innerHTML = s;
+};
+Lib.slider($("#u2sl1"), { id: "u2a1", label: "Unpresented cheques", min: 0, max: 2000, step: 50, value: 800, fmt: (v) => "£" + v, onInput: u2Lab });
+Lib.slider($("#u2sl2"), { id: "u2a2", label: "Outstanding lodgements", min: 0, max: 2000, step: 50, value: 300, fmt: (v) => "£" + v, onInput: u2Lab });
+Lib.slider($("#u2sl3"), { id: "u2a3", label: "Bank charges not yet in cash book", min: 0, max: 200, step: 5, value: 35, fmt: (v) => "£" + v, onInput: u2Lab });
+Lib.slider($("#u2sl4"), { id: "u2a4", label: "Hidden mistake in cash book", min: 0, max: 200, step: 10, value: 0, fmt: (v) => "£" + v, onInput: u2Lab });
+u2Lab();
+
+Lib.classify($("#u2cl1"), {
+  prompt: "Does this item need a cash book entry, or is it only a reconciling item?",
+  buckets: [{ label: "Update the cash book" }, { label: "Reconciliation only (timing)" }],
+  items: [
+    { text: "Bank charges on the statement", b: 0 }, { text: "Unpresented cheque", b: 1 }, { text: "Direct debit not yet recorded", b: 0 },
+    { text: "Outstanding lodgement", b: 1 }, { text: "Interest credited by the bank", b: 0 }, { text: "BACS receipt not yet in the cash book", b: 0 },
+    { text: "Cheque issued but not yet cleared", b: 1 }, { text: "Dishonoured customer cheque", b: 0 }, { text: "Standing order not yet recorded", b: 0 },
+    { text: "Money banked yesterday, not yet on the statement", b: 1 },
+  ],
+  done: "Timing differences are not mistakes. Missing records are.",
+});
+Lib.match($("#u2m1"), {
+  prompt: "Match each error type to its description.",
+  pairs: [
+    ["Omission", "A whole transaction was never recorded"],
+    ["Commission", "Posted to the wrong account of the same type"],
+    ["Principle", "Posted to the wrong type of account"],
+    ["Original entry", "Wrong amount used on both sides"],
+    ["Reversal", "Debit and credit entered the wrong way round"],
+    ["Compensating", "Two errors that cancel each other out"],
+  ],
+  done: "These six leave the trial balance balanced.",
+});
+Lib.classify($("#u2cl2"), {
+  prompt: "Would the trial balance still balance after this error?",
+  buckets: [{ label: "Still balances" }, { label: "Will not balance" }],
+  items: [
+    { text: "Invoice left out of the books completely", b: 0 }, { text: "Electricity posted to the gas account", b: 0 },
+    { text: "Debit made, credit never posted", b: 1 }, { text: "£540 posted on one side and £450 on the other", b: 1 },
+    { text: "Debit and credit swapped", b: 0 }, { text: "Machinery posted as a repairs expense", b: 0 },
+    { text: "A day book column added up wrongly and posted to one account only", b: 1 }, { text: "Two errors of £100 in opposite directions", b: 0 },
+  ],
+  done: "Only one-sided or unequal postings break the trial balance.",
+});
+Lib.order($("#u2o1"), {
+  prompt: "Put the bank reconciliation steps in order.",
+  items: [
+    "Compare the cash book and the bank statement, ticking matched items",
+    "List items on the statement that are not in the cash book",
+    "Update the cash book and find the new balance",
+    "List unpresented cheques and outstanding lodgements",
+    "Adjust the statement balance for the timing differences",
+    "Check the result equals the updated cash book balance",
+    "Investigate and journal any unexplained difference",
+  ],
+  done: "A full method.",
+});
+Lib.calc($("#u2c1"), { qs: [
+  { q: "The cash book shows £3,420. The statement shows bank charges of £35 not in the cash book. What is the updated cash book balance (£)?", a: 3385, sol: "£3,420 − £35 = <b>£3,385</b>." },
+  { q: "The bank statement shows £4,800. Unpresented cheques are £1,150 and an outstanding lodgement is £600. What is the reconciled cash book balance (£)?", a: 4250, hint: "Statement − cheques + lodgements.", sol: "£4,800 − £1,150 + £600 = <b>£4,250</b>." },
+  { q: "Opening sales ledger control £12,400, credit sales £30,000, receipts £27,500, sales returns £1,200. What is the closing balance (£)?", a: 13700, sol: "£12,400 + £30,000 − £27,500 − £1,200 = <b>£13,700</b>." },
+  { q: "Trial balance debits are £91,240 and credits £91,610. The difference is placed in suspense. Is the suspense balance a debit or a credit? (type DEBIT or CREDIT)", t: ["DEBIT", "DR"], ph: "debit or credit", sol: "Debits are short by £370, so suspense is a <b>debit</b> of £370." },
+  { q: "A supplier invoice of £540 was entered in the purchases ledger account as £450 but correctly in the control account. By how much do the ledger balances differ from the control account (£)?", a: 90, sol: "£540 − £450 = <b>£90</b>. The ledger total is £90 too low." },
+  { q: "A supplier statement shows £3,250. The ledger shows £3,070 because an invoice for £180 has not been entered. What is the ledger balance once the invoice is entered (£)?", a: 3250, sol: "£3,070 + £180 = <b>£3,250</b>, matching the statement." },
+] });
+Lib.quiz($("#u2qz"), { qs: [
+  { q: "An unpresented cheque is:", opts: ["A cheque received but not banked", "A cheque you issued that has not yet cleared the bank", "A cheque the bank refused", "A direct debit"], a: 1, why: "It is in your cash book but not yet on the statement: a timing difference." },
+  { q: "Which needs a cash book entry?", opts: ["Outstanding lodgement", "Unpresented cheque", "Bank charges", "None of these"], a: 2, why: "Bank charges are on the statement but missing from your records." },
+  { q: "A sales ledger control account balance should equal:", opts: ["The purchases ledger control account", "The total of the individual customer balances", "Total sales for the year", "The bank balance"], a: 1, why: "It summarises the sales ledger, so the two should agree." },
+  { q: "A trial balance is short on the debit side. The suspense balance is:", opts: ["A debit", "A credit", "Nil", "A debit or a credit, you choose"], a: 0, why: "The suspense account makes up the missing debit." },
+  { q: "Which error leaves the trial balance balanced?", opts: ["Transposed figure on one side", "Debit made, credit forgotten", "Error of principle", "Wrong addition posted to one account"], a: 2, why: "A wrong type of account is used on both sides; the totals still agree." },
+  { q: "A journal entry needs:", opts: ["Only an amount", "Accounts, debit and credit, narrative and authorisation", "A bank statement", "No explanation"], a: 1, why: "A clear narrative and authorisation make corrections traceable." },
+] });
+Lib.cards($("#u2fc"), { cards: [
+  ["Bank reconciliation", "A comparison of the cash book and bank statement, explaining any difference."],
+  ["Unpresented cheque", "A cheque issued, in the cash book, but not yet cleared by the bank."],
+  ["Outstanding lodgement", "Money paid in, in the cash book, but not yet on the statement."],
+  ["Control account", "A general ledger summary of all customer or supplier accounts."],
+  ["Supplier statement", "A statement from a supplier, reconciled to the ledger account."],
+  ["Journal", "A record of a non-routine entry or correction."],
+  ["Suspense account", "A temporary account holding an unexplained difference."],
+  ["Error of omission", "A transaction missed entirely."],
+  ["Error of principle", "Posting to the wrong type of account."],
+  ["Compensating error", "Two errors that cancel each other out."],
+] });
+
+/* ================= UNIT 3 ================= */
+function costChart(s) {
+  const X = (q) => 70 + q * 0.3, Y = (c) => 330 - c * 0.036;
+  let o = SV.line(X(0), Y(8000), X(0), Y(0)) + SV.line(X(0), Y(0), X(2000), Y(0));
+  o += SV.text(X(0) + 6, Y(8000) + 4, "Cost (£)", "sm", { "text-anchor": "start" }) + SV.text(X(2000), Y(0) + 36, "Output (units)", "sm", { "text-anchor": "end" });
+  [0, 1000, 2000].forEach((q) => (o += SV.text(X(q), Y(0) + 16, q, "sm", mid)));
+  [3000, 6000].forEach((c) => (o += SV.line(X(0), Y(c), X(2000), Y(c), "gr") + SV.text(X(0) - 6, Y(c) + 4, c.toLocaleString("en-GB"), "sm", { "text-anchor": "end" })));
+  o += SV.line(X(0), Y(3000), X(2000), Y(3000), "c1", vis(s.f)) + SV.text(X(1750), Y(3000) + 20, "Fixed £3,000", "lbl bd t1", vis(s.f));
+  o += SV.line(X(0), Y(0), X(2000), Y(4000), "c3", vis(s.v)) + SV.text(X(1500), Y(3000) + 52, "Variable £2 a unit", "lbl bd t3", vis(s.v));
+  o += SV.line(X(0), Y(3000), X(2000), Y(7000), "c2", vis(s.t)) + SV.text(X(1800), Y(6600) - 14, "Total cost", "lbl bd t2", { ...mid, ...vis(s.t) });
+  o += SV.circle(X(500), Y(4000), 7, "dot2", vis(s.p)) + SV.text(X(500) + 12, Y(4000) - 10, "500 units: £8.00 each", "lbl bd", { "text-anchor": "start", ...vis(s.p) });
+  o += SV.circle(X(1500), Y(6000), 7, "dot2", vis(s.p)) + SV.text(X(1500) - 12, Y(6000) - 12, "1,500 units: £4.00 each", "lbl bd", { "text-anchor": "end", ...vis(s.p) });
+  return o;
+}
+Lib.stepper($("#u3st1"), {
+  w: 760, h: 380, label: "Fixed, variable and total cost against output", base: { f: 0, v: 0, t: 0, p: 0 },
+  draw: costChart,
+  steps: [
+    { cap: "Axes: output across, cost up. A business is about to produce between 0 and 2,000 units.", s: {} },
+    { cap: "<b>Fixed costs</b> (rent, insurance) stay at £3,000 whether it makes 1 unit or 2,000.", s: { f: 1 } },
+    { cap: "<b>Variable costs</b> (materials) rise in proportion to output: £2 a unit, so £0 at no output and £4,000 at 2,000 units.", s: { f: 1, v: 1 } },
+    { cap: "<b>Total cost = fixed + variable.</b> The line starts at £3,000 and rises by £2 for each unit. This is a semi-variable pattern.", s: { f: 1, v: 1, t: 1 } },
+    { cap: "<b>Cost per unit falls as output rises.</b> At 500 units, £4,000 ÷ 500 = £8.00. At 1,500 units, £6,000 ÷ 1,500 = £4.00, because the fixed cost is spread over more units.", s: { f: 1, v: 1, t: 1, p: 1 } },
+  ],
+});
+
+const P = 32.94;
+function buildChart(s) {
+  const seg = [[6.5, "Direct materials", "f1", s.m], [4, "Direct labour", "f3", s.l], [0.5, "Exp.", "f4", s.e], [6, "Overheads", "f2", s.o], [4.25, "Mark-up 25%", "fm", s.p]];
+  let x = 30, o = SV.text(380, 30, "Cost build-up for one unit", "lbl bd", mid);
+  seg.forEach((g) => {
+    const w = g[0] * P * op(g[3]);
+    o += SV.rect(x, 110, w, 70, g[2]) + `<rect x="${x}" y="110" width="${Math.max(0, w)}" height="70" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:${op(g[3])}"/>`;
+    o += SV.text(x + w / 2, 100, g[1], "sm", { ...mid, ...vis(g[3]) }) + (g[0] < 1 ? SV.text(x + w / 2, 194, "£" + g[0].toFixed(2), "sm", { ...mid, ...vis(g[3]) }) : SV.text(x + w / 2, 150, "£" + g[0].toFixed(2), "lbl bd", { ...mid, ...vis(g[3]) }));
+    x += w;
+  });
+  const pc = 30 + 11 * P, tc = 30 + 17 * P, sp = 30 + 21.25 * P;
+  o += SV.line(30, 200, pc, 200, "ax", vis(s.e)) + SV.text((30 + pc) / 2, 222, "Prime cost £11.00", "lbl bd t1", { ...mid, ...vis(s.e) });
+  o += SV.line(30, 238, tc, 238, "ax", vis(s.o)) + SV.text((30 + tc) / 2, 260, "Total cost £17.00", "lbl bd t2", { ...mid, ...vis(s.o) });
+  o += SV.line(30, 276, sp, 276, "ax", vis(s.p)) + SV.text((30 + sp) / 2, 298, "Selling price £21.25", "lbl bd t3", { ...mid, ...vis(s.p) });
+  return o;
+}
+Lib.stepper($("#u3st2"), {
+  w: 760, h: 320, label: "Building a selling price from the cost elements", base: { m: 0, l: 0, e: 0, o: 0, p: 0 },
+  draw: buildChart,
+  steps: [
+    { cap: "<b>Direct materials</b> £6.50 per unit: the part of the cost we can trace to the product.", s: { m: 1 } },
+    { cap: "Add <b>direct labour</b> £4.00 per unit.", s: { m: 1, l: 1 } },
+    { cap: "Add <b>direct expenses</b> £0.50. Materials + labour + expenses = <b>prime cost £11.00</b>.", s: { m: 1, l: 1, e: 1 } },
+    { cap: "Add <b>absorbed overheads</b>. The rate is £12 per hour (£84,000 ÷ 7,000 hours) and a unit uses 0.5 hours, so £6.00. <b>Total cost £17.00.</b>", s: { m: 1, l: 1, e: 1, o: 1 } },
+    { cap: "A <b>25% mark-up on cost</b> adds £4.25, giving a selling price of <b>£21.25</b>.", s: { m: 1, l: 1, e: 1, o: 1, p: 1 } },
+  ],
+});
+
+const u3Lab1 = () => {
+  if (!$("#u3a")) return;
+  const q = +$("#u3a").value, f = 3000, v = 2 * q, t = f + v;
+  $("#u3a1").textContent = money(f); $("#u3a2").textContent = money(v); $("#u3a3").textContent = money(t); $("#u3a4").textContent = q ? money(t / q, 2) : "–";
+  $("#u3v1").textContent = q === 0 ? "No output: only the fixed cost of £3,000 remains." : `At ${q} units fixed cost per unit is ${money(f / q, 2)} and variable cost per unit is £2.00.`;
+  const X = (u) => 50 + u * 0.17, Y = (c) => 260 - c * 0.027;
+  let s = SV.line(X(0), Y(8000), X(0), Y(0)) + SV.line(X(0), Y(0), X(2000), Y(0));
+  s += SV.text(X(0) + 4, 18, "Cost (£)", "sm", { "text-anchor": "start" }) + SV.text(X(2000), Y(0) + 24, "Output", "sm", { "text-anchor": "end" });
+  s += SV.line(X(0), Y(3000), X(2000), Y(3000), "c1") + SV.line(X(0), Y(3000), X(2000), Y(7000), "c2");
+  s += SV.line(X(q), Y(0), X(q), Y(t), "gr") + SV.circle(X(q), Y(t), 7, "dot2");
+  s += SV.text(X(q), Y(0) + 16, q, "sm", mid) + SV.text(Math.min(X(q) + 10, 330), Y(t) - 12, money(t), "lbl bd", { "text-anchor": "start" });
+  s += SV.text(X(2000) - 4, Y(3000) + 16, "Fixed", "sm t1", { "text-anchor": "end" }) + SV.text(X(2000) - 4, Y(7000) - 8, "Total cost", "sm t2", { "text-anchor": "end" });
+  $("#u3lab1").innerHTML = s;
+};
+Lib.slider($("#u3sl1"), { id: "u3a", label: "Output (units)", min: 0, max: 2000, step: 50, value: 800, fmt: (v) => v.toLocaleString("en-GB"), onInput: u3Lab1 });
+u3Lab1();
+
+const u3Lab2 = () => {
+  if (!$("#u3b") || !$("#u3c") || !$("#u3d")) return;
+  const bo = +$("#u3b").value, bh = +$("#u3c").value, jh = +$("#u3d").value, r = bo / bh, jo = r * jh;
+  $("#u3b1").textContent = money(r, 2); $("#u3b2").textContent = money(jo, 2);
+  $("#u3v2").textContent = `${money(bo)} ÷ ${bh.toLocaleString("en-GB")} hours = ${money(r, 2)} an hour. A job using ${jh} hours absorbs ${money(jo, 2)} of overhead.`;
+  let s = SV.text(20, 30, "Rate per hour", "sm") + SV.rect(20, 38, r * 11, 40, "f1") + SV.text(24 + r * 11, 64, money(r, 2), "lbl bd", { "text-anchor": "start" });
+  s += SV.text(20, 120, "Overhead on this job", "sm") + SV.rect(20, 128, Math.min(380, jo * 0.5), 40, "f3") + SV.text(24 + Math.min(380, jo * 0.5), 154, money(jo, 2), "lbl bd", { "text-anchor": "start" });
+  $("#u3lab2").innerHTML = s;
+};
+Lib.slider($("#u3sl2"), { id: "u3b", label: "Budgeted overheads", min: 40000, max: 120000, step: 4000, value: 84000, fmt: (v) => "£" + v.toLocaleString("en-GB"), onInput: u3Lab2 });
+Lib.slider($("#u3sl3"), { id: "u3c", label: "Budgeted labour hours", min: 4000, max: 10000, step: 500, value: 7000, fmt: (v) => v.toLocaleString("en-GB"), onInput: u3Lab2 });
+Lib.slider($("#u3sl4"), { id: "u3d", label: "Hours used by this job", min: 1, max: 20, step: 0.5, value: 4, fmt: (v) => v + " hrs", onInput: u3Lab2 });
+u3Lab2();
+
+Lib.classify($("#u3cl1"), {
+  prompt: "The cost unit is <b>one wooden table</b>. Is each cost direct or indirect?",
+  buckets: [{ label: "Direct" }, { label: "Indirect (overhead)" }],
+  items: [
+    { text: "Oak planks used in the table", b: 0 }, { text: "Carpenter's wages for time on the table", b: 0 },
+    { text: "Workshop rent", b: 1 }, { text: "Supervisor's salary", b: 1 },
+    { text: "Veneer bought for one customer's table", b: 0 }, { text: "Workshop heating", b: 1 },
+    { text: "Glue and screws too small to measure", b: 1 }, { text: "Delivery van insurance", b: 1 },
+    { text: "Machine depreciation", b: 1 }, { text: "Hire of a special tool for one order", b: 0 },
+  ],
+  done: "Traceable to the cost unit = direct.",
+});
+Lib.classify($("#u3cl2"), {
+  prompt: "How does each cost behave as output changes?",
+  buckets: [{ label: "Fixed" }, { label: "Variable" }, { label: "Semi-variable" }, { label: "Stepped" }],
+  items: [
+    { text: "Factory rent", b: 0 }, { text: "Raw materials", b: 1 }, { text: "Electricity: standing charge plus usage", b: 2 },
+    { text: "Piecework wages", b: 1 }, { text: "A new supervisor needed for every 20 workers", b: 3 }, { text: "Insurance premium", b: 0 },
+    { text: "Mobile phone: line rental plus calls", b: 2 }, { text: "Packaging per unit", b: 1 }, { text: "Machine hire in blocks of 1,000 hours", b: 3 }, { text: "Salaried manager's pay", b: 0 },
+  ],
+  done: "Fixed stays level, variable rises with output, semi-variable has both, stepped jumps.",
+});
+Lib.match($("#u3m1"), {
+  prompt: "Match each term to its meaning.",
+  pairs: [
+    ["Cost centre", "A department costs are collected against"],
+    ["Cost unit", "The item for which cost is measured"],
+    ["Prime cost", "Direct materials + direct labour + direct expenses"],
+    ["FIFO", "Oldest stock is issued first"],
+    ["LIFO", "Newest stock is issued first"],
+    ["AVCO", "A weighted average price recalculated after each receipt"],
+    ["Reorder level", "Stock level at which a new order is placed"],
+  ],
+  done: "Costing runs on precise terms.",
+});
+Lib.order($("#u3o1"), {
+  prompt: "Put the steps for a selling price in order.",
+  items: [
+    "Identify the cost unit",
+    "Collect direct materials, direct labour and direct expenses",
+    "Calculate the overhead absorption rate from the budgets",
+    "Absorb overheads using the hours (or units) the product uses",
+    "Add all the elements to get total cost",
+    "Divide by units to get unit cost",
+    "Add the mark-up to find the selling price",
+  ],
+  done: "That is the costing sequence.",
+});
+Lib.calc($("#u3c1"), { qs: [
+  { q: "FIFO. Opening stock 100 units at £4.00, receipt of 200 units at £5.00, then an issue of 150 units. What is the cost of the issue (£)?", a: 650, hint: "Use the £4 units first.", sol: "100 × £4 + 50 × £5 = <b>£650</b>." },
+  { q: "AVCO, same data. What is the cost of the issue (£)?", a: 700, tol: 1, hint: "Average = £1,400 ÷ 300 units.", sol: "Average = £4.667. 150 × £4.667 = <b>£700</b>." },
+  { q: "LIFO, same data. What is the cost of the issue (£)?", a: 750, sol: "The newest stock goes first: 150 × £5 = <b>£750</b>." },
+  { q: "Budgeted overheads £84,000, budgeted labour hours 7,000. What is the absorption rate per hour (£)?", a: 12, sol: "£84,000 ÷ 7,000 = <b>£12</b>." },
+  { q: "37 basic hours at £12.00, plus 5 overtime hours at time and a half. What is gross pay (£)?", a: 534, sol: "37 × £12 = £444. 5 × £18 = £90. Total = <b>£534</b>." },
+  { q: "Direct materials £6.50, direct labour £4.00, direct expenses £0.50, overheads £6.00. What is total cost per unit (£)?", a: 17, sol: "£6.50 + £4.00 + £0.50 + £6.00 = <b>£17.00</b>." },
+  { q: "A unit costs £17.00. Add a 25% mark-up. What is the selling price (£)?", a: 21.25, sol: "£17.00 × 1.25 = <b>£21.25</b>." },
+  { q: "Electricity has a fixed charge of £400 plus £0.05 per unit. What is the cost at 8,000 units (£)?", a: 800, sol: "£400 + 8,000 × £0.05 = £400 + £400 = <b>£800</b>." },
+] });
+Lib.quiz($("#u3qz"), { qs: [
+  { q: "Prime cost is:", opts: ["Materials only", "Direct materials, direct labour and direct expenses", "Total cost", "Overheads"], a: 1, why: "Prime cost adds up all the direct costs." },
+  { q: "A cost that stays constant whatever the output is:", opts: ["Variable", "Fixed", "Semi-variable", "Direct"], a: 1, why: "Fixed costs, such as rent, do not change with output in the short run." },
+  { q: "When prices are rising, FIFO usually gives:", opts: ["Higher closing stock value than LIFO", "Lower closing stock value than LIFO", "The same as LIFO", "A zero value"], a: 0, why: "Old, cheaper stock is issued first, so the newer, dearer stock stays in closing stock." },
+  { q: "Overhead absorption rates are based on:", opts: ["Actual costs only", "Budgeted overheads and budgeted activity", "Sales", "Last year's profit"], a: 1, why: "Budgets are used so that a rate can be set before the period." },
+  { q: "As output rises, fixed cost per unit:", opts: ["Rises", "Falls", "Stays the same", "Becomes variable"], a: 1, why: "The same fixed total is spread over more units." },
+  { q: "A cost centre is:", opts: ["Where profit is made", "A department or area that costs are collected against", "A product", "A bank account"], a: 1, why: "A profit centre earns revenue too; a cost centre only incurs costs." },
+] });
+Lib.cards($("#u3fc"), { cards: [
+  ["Cost unit", "The thing for which cost is measured, such as one product or one job."],
+  ["Cost centre", "A department or area against which costs are collected."],
+  ["Direct cost", "A cost that can be traced to a single cost unit."],
+  ["Indirect cost (overhead)", "A cost shared by many cost units."],
+  ["Prime cost", "Direct materials + direct labour + direct expenses."],
+  ["Fixed / variable cost", "A cost that does not change with output / one that changes in proportion."],
+  ["Semi-variable cost", "A cost with a fixed and a variable part."],
+  ["FIFO / LIFO / AVCO", "Stock issued oldest first / newest first / at a weighted average price."],
+  ["Absorption rate", "Budgeted overheads ÷ budgeted activity."],
+  ["Mark-up", "A percentage added to cost to set the selling price."],
+] });
+
+/* ================= UNIT 4 ================= */
+const u4items = [
+  { t: ["Spot the", "issue"], d: ["Something feels", "wrong or unusual"] },
+  { t: ["Name the", "principle"], d: ["Integrity,", "objectivity..."] },
+  { t: ["Name the", "threat"], d: ["Self-interest,", "intimidation..."] },
+  { t: ["Apply a", "safeguard"], d: ["Check rules,", "ask for advice"] },
+  { t: ["Report and", "record"], d: ["Tell the right", "person; note it"] },
+];
+Lib.stepper($("#u4st1"), {
+  w: 760, h: 220, label: "Steps for working through an ethical problem", base: { n: 0 },
+  draw: (s) => flow(u4items, s.n) + SV.text(380, 28, "Working through an ethical problem", "lbl bd", mid),
+  steps: [
+    { cap: "<b>Spot the issue.</b> A manager asks you to hold back an invoice so this month's profit looks better.", s: { n: 1 } },
+    { cap: "<b>Name the principle at risk.</b> Delaying the invoice could make the accounts misleading: <b>integrity</b>, and possibly <b>objectivity</b>.", s: { n: 2 } },
+    { cap: "<b>Name the threat.</b> A senior person is applying pressure: <b>intimidation</b>. If their bonus depends on profit, there may be <b>self-interest</b> too.", s: { n: 3 } },
+    { cap: "<b>Apply a safeguard.</b> Check the policy, explain why the invoice belongs in this period, and ask a more senior colleague or an ethics contact for advice.", s: { n: 4 } },
+    { cap: "<b>Report and record.</b> Tell the right person, keep a note of the request and what you did. Do not simply go along with it.", s: { n: 5 } },
+  ],
+});
+
+function matrix(s) {
+  const q = [[70, 40, "Urgent and important", "Do now", "f2"], [400, 40, "Important, not urgent", "Schedule", "f1"], [70, 190, "Urgent, not important", "Limit or hand over", "f4"], [400, 190, "Neither", "Drop", "f3"]];
+  let o = SV.text(235, 28, "Urgent", "lbl bd", mid) + SV.text(565, 28, "Not urgent", "lbl bd", mid);
+  q.forEach((g) => { o += SV.rect(g[0], g[1], 320, 140, g[4]) + `<rect x="${g[0]}" y="${g[1]}" width="320" height="140" fill="none" stroke="currentColor" stroke-width="1.5" rx="4"/>` + SV.text(g[0] + 10, g[1] + 22, g[2], "lbl bd", { "text-anchor": "start" }) + SV.text(g[0] + 310, g[1] + 22, g[3], "sm", { "text-anchor": "end" }); });
+  o += SV.text(14, 112, "Important", "sm", { "text-anchor": "start" }) + SV.text(14, 262, "Not imp.", "sm", { "text-anchor": "start" });
+  const t = [[70, 40, "File the VAT return due tomorrow", s.a], [400, 40, "Plan next month's reconciliations", s.b], [70, 190, "Quick non-critical favour for a colleague", s.c], [400, 190, "Browsing the news", s.d]];
+  t.forEach((g) => { o += `<g style="opacity:${op(g[3]).toFixed(3)}">` + SV.rect(g[0] + 14, g[1] + 62, 292, 40, "bx", { rx: 8 }) + SV.text(g[0] + 160, g[1] + 87, g[2], "lbl", mid) + "</g>"; });
+  return o;
+}
+Lib.stepper($("#u4st2"), {
+  w: 760, h: 345, label: "Urgent and important matrix with four tasks", base: { a: 0, b: 0, c: 0, d: 0 },
+  draw: matrix,
+  steps: [
+    { cap: "Two questions sort any task: <b>is it urgent</b> (a deadline is close) and <b>is it important</b> (does it matter to the result)?", s: {} },
+    { cap: "The <b>VAT return due tomorrow</b> is urgent and important. A late return can bring a penalty, so it comes first.", s: { a: 1 } },
+    { cap: "<b>Planning next month's reconciliations</b> is important but not urgent. Book time for it now so it never becomes a crisis.", s: { a: 1, b: 1 } },
+    { cap: "A <b>quick favour</b> feels urgent because someone is waiting, but it is not important. Limit it, or agree a time later.", s: { a: 1, b: 1, c: 1 } },
+    { cap: "<b>Browsing the news</b> is neither. Drop it, or save it for a break.", s: { a: 1, b: 1, c: 1, d: 1 } },
+  ],
+});
+
+const u4Lab = () => {
+  if (!$("#u4a") || !$("#u4b") || !$("#u4c")) return;
+  const day = +$("#u4a").value, intr = +$("#u4b").value, planned = +$("#u4c").value;
+  const avail = day - 0.5, need = 6 + intr * (planned ? 0.15 : 0.25), spare = avail - need;
+  $("#u4r1").textContent = need.toFixed(1) + " h"; $("#u4r2").textContent = avail.toFixed(1) + " h"; $("#u4r3").textContent = (spare >= 0 ? "+" : "") + spare.toFixed(1) + " h";
+  $("#u4v").textContent = spare >= 0.5 ? "The deadline looks achievable with some slack for surprises." : spare >= 0 ? "Only just fits. One more interruption could break the plan." : "The work will not fit. Tell the person waiting early, agree a new deadline or reduce the scope.";
+  const sc = 380 / 12;
+  let s = SV.text(20, 40, "Hours available (day less 0.5 h break)", "sm") + SV.rect(20, 50, avail * sc, 36, "f3") + SV.text(24 + avail * sc, 74, avail.toFixed(1) + " h", "lbl bd", { "text-anchor": "start" });
+  s += SV.text(20, 130, "Hours needed (6 h of tasks plus interruptions)", "sm") + SV.rect(20, 140, 6 * sc, 36, "f1") + SV.rect(20 + 6 * sc, 140, (need - 6) * sc, 36, spare >= 0 ? "f4" : "f2");
+  s += SV.text(20 + need * sc + 4, 164, need.toFixed(1) + " h", "lbl bd", { "text-anchor": "start" });
+  s += SV.text(20 + 3 * sc, 204, "Core tasks", "sm", mid) + SV.text(Math.min(20 + 6 * sc + (need - 6) * sc / 2, 380), 204, "Interruptions", "sm", mid);
+  $("#u4lab").innerHTML = s;
+};
+Lib.slider($("#u4sl1"), { id: "u4a", label: "Length of the working day", min: 6, max: 10, step: 0.5, value: 8, fmt: (v) => v + " h", onInput: u4Lab });
+Lib.slider($("#u4sl2"), { id: "u4b", label: "Interruptions", min: 0, max: 10, step: 1, value: 4, fmt: (v) => v, onInput: u4Lab });
+Lib.slider($("#u4sl3"), { id: "u4c", label: "Batch interruptions into set times?", min: 0, max: 1, step: 1, value: 0, fmt: (v) => (v ? "Yes" : "No"), onInput: u4Lab });
+u4Lab();
+
+Lib.classify($("#u4cl1"), {
+  prompt: "Name the threat in each situation.",
+  buckets: [{ label: "Self-interest" }, { label: "Self-review" }, { label: "Advocacy" }, { label: "Familiarity" }, { label: "Intimidation" }],
+  items: [
+    { text: "Your bonus depends on the profit you report", b: 0 }, { text: "You own shares in a client you advise", b: 0 },
+    { text: "You review accounts that you prepared", b: 1 }, { text: "A colleague audits the system they built", b: 1 },
+    { text: "You are asked to present only the good news to the bank", b: 2 },
+    { text: "You accept a close friend's figures without checking", b: 3 }, { text: "A relative owns a supplier whose invoices you approve", b: 3 },
+    { text: "A manager threatens dismissal unless you approve a payment", b: 4 },
+  ],
+  done: "The threat describes why your judgement might be compromised.",
+});
+Lib.match($("#u4m1"), {
+  prompt: "Match each principle to what it asks of you.",
+  pairs: [
+    ["Integrity", "Be honest and straightforward"],
+    ["Objectivity", "Do not let bias or conflicts override your judgement"],
+    ["Professional competence and due care", "Keep knowledge up to date and work to a proper standard"],
+    ["Confidentiality", "Do not disclose information without a right or duty to"],
+    ["Professional behaviour", "Comply with the law and do not discredit the profession"],
+  ],
+  done: "Five principles, five jobs.",
+});
+Lib.classify($("#u4cl2"), {
+  prompt: "Place each task in the matrix.",
+  buckets: [{ label: "Urgent and important" }, { label: "Important, not urgent" }, { label: "Urgent, not important" }, { label: "Neither" }],
+  items: [
+    { text: "VAT return due tomorrow", b: 0 }, { text: "Payroll must be paid by Friday", b: 0 },
+    { text: "Planning next quarter's reconciliations", b: 1 }, { text: "Updating your CPD log", b: 1 },
+    { text: "A colleague's quick, non-critical favour", b: 2 }, { text: "A routine email marked 'FYI'", b: 2 },
+    { text: "Scrolling social media", b: 3 }, { text: "Re-sorting your files for the third time", b: 3 },
+  ],
+  done: "Do the first, plan the second, limit the third, drop the fourth.",
+});
+Lib.order($("#u4o1"), {
+  prompt: "Put the response to an ethical dilemma in a sensible order.",
+  items: [
+    "Notice that something may be wrong",
+    "Identify the principle at risk",
+    "Identify the threat",
+    "Gather the facts and check the rules",
+    "Raise it with the right person",
+    "Write down what was said and done",
+    "Follow the advice and, if unresolved, escalate",
+  ],
+  done: "A defensible process.",
+});
+Lib.quiz($("#u4qz"), { qs: [
+  { q: "Which is NOT one of the five fundamental principles?", opts: ["Integrity", "Objectivity", "Profitability", "Confidentiality"], a: 2, why: "The five are integrity, objectivity, professional competence and due care, confidentiality and professional behaviour." },
+  { q: "You review a report you prepared yourself. This is a:", opts: ["Self-review threat", "Familiarity threat", "Advocacy threat", "Intimidation threat"], a: 0, why: "You may be less likely to spot your own mistakes." },
+  { q: "If you suspect money laundering you should:", opts: ["Tell the customer", "Report it to the MLRO and not tip off", "Ignore it", "Post it on social media"], a: 1, why: "Tipping off is an offence; internal reporting is the correct route." },
+  { q: "SMART targets are:", opts: ["Specific, measurable, achievable, realistic, time-bound", "Simple, manageable, agreed, reviewed, timely", "Strategic, mixed, adjusted, rated, tested", "None of these"], a: 0, why: "SMART gives a clear way to set goals." },
+  { q: "The triple bottom line covers:", opts: ["Profit, loss, cash", "People, planet, profit", "Price, product, place", "Sales, costs, tax"], a: 1, why: "It asks a business to consider social and environmental effects alongside financial results." },
+  { q: "CPD stands for:", opts: ["Continuing professional development", "Certified payroll data", "Core personal duties", "Customer payment date"], a: 0, why: "Regular learning that keeps skills current." },
+] });
+Lib.cards($("#u4fc"), { cards: [
+  ["Integrity", "Being honest and straightforward."],
+  ["Objectivity", "Not letting bias, conflicts or influence override judgement."],
+  ["Professional competence and due care", "Having the right knowledge and applying it carefully."],
+  ["Confidentiality", "Not disclosing information without a right or duty to."],
+  ["Professional behaviour", "Obeying the law and protecting the profession's reputation."],
+  ["Threat", "A risk that one of the fundamental principles may be compromised."],
+  ["Safeguard", "An action that removes or reduces a threat."],
+  ["Money laundering", "Making the proceeds of crime look legitimate; must be reported, never tipped off."],
+  ["Triple bottom line", "People, planet and profit."],
+  ["CPD", "Continuing professional development to keep skills up to date."],
+] });
+
+Lib.initTabs();
+</script>
+</body></html>
