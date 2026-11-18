@@ -153,3 +153,12 @@ a { color:var(--accent); }
 .dl-list a { font-weight:500; text-decoration:none; }
 @media print { .section-head.gap-top { margin-top:18pt; } .dl-list { display:none; } details:has(.dl-list) { display:none; } }
 @media print { .section-head.gap-top, .section-head.gap-top ~ details { display:none !important; } .section-head { margin-top:14pt; } }
+
+/* Mark-scheme skill tags */
+.tg { display:inline-block; font-size:.7rem; font-weight:700; line-height:1; padding:3px 6px; border-radius:4px; color:#fff; vertical-align:1px; margin-left:4px; }
+.tg.k { background:#2f5bd3; } .tg.ap { background:#0f766e; } .tg.an { background:#7c3aed; } .tg.ev { background:#c2410c; }
+.marksbar { display:flex; gap:3px; margin:10px 0 4px; }
+.marksbar span { color:#fff; font-weight:700; text-align:center; padding:8px 4px; border-radius:6px; font-size:.9rem; }
+.marksbar .k { background:#2f5bd3; flex:2; } .marksbar .ap { background:#0f766e; flex:2; } .marksbar .an { background:#7c3aed; flex:4; } .marksbar .ev { background:#c2410c; flex:4; }
+.model p { margin:10px 0; }
+.tablewrap { overflow-x:auto; }
