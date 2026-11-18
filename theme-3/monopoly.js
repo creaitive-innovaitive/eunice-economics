@@ -14,7 +14,7 @@
       '<b>Allocative efficiency</b> (P = MC) is at a quantity where the price is below average cost, so the network makes a loss and needs a subsidy to fund off-peak services.'
     ],
     draw(c) {
-      c.curve(LRAC, 'ac', 0, 16, 132, 'LRAC', 124);
+      c.curve(LRAC, 'ac', 0, 16, 132, 'LRAC', 70);
       c.curve(MCV, 'mc', 1, 8, 132, 'LRMC', 50);
       c.curve(D, 'ar', 2, 8, 128, 'D', 12);
       c.dash(q1, LRAC(q1), 3); c.dot(q1, LRAC(q1), 3);
